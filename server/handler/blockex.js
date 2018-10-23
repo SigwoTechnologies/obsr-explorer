@@ -458,8 +458,12 @@ const getTX = async (req, res) => {
     const vin = [];
     await forEach(tx.vin, async (vi) => {
       if (tx.vout[0].address === 'NON_STANDARD' && !vi.coinbase) {
-        const t = await TX.findOne({txId: vi.txId})
-        vin.push({address: t.vout[vi.vout].address, value: t.vout[vi.vout].value, coinstake: true})
+        if (vi.isZcSpend) {
+          vin.push({address: 'ZERO_COIN_SPEND', value: vi.sequence, zerocoinstake: true})
+        } else {
+          const t = await TX.findOne({txId: vi.txId})
+          vin.push({address: t.vout[vi.vout].address, value: t.vout[vi.vout].value, coinstake: true})
+        }
       } else if(vi.isZcSpend){
         vin.push({isZcSpend:true, value: vi.sequence});
       }else if (vi.txId) {

@@ -29,11 +29,37 @@ export default class CardTXOut extends Component {
 
   render () {
     let isCoinStake = this.props.tx.vin[0].coinstake
+    let isZerocoinStake = this.props.tx.vin[0].zerocoinstake
     return (
       <Table
         cols={this.state.cols}
         data={this.props.tx.vout.map(vout => {
-          if (isCoinStake && vout.address !== 'NON_STANDARD') {
+          if (isZerocoinStake && vout.address !== 'NON_STANDARD') {
+            let voutValue
+            if (vout.address === 'ZERO_COIN_MINT') {
+              voutValue = <div>
+                <span className="badge badge-success">STAKE REWARD</span>
+                <span className="badge badge-success">
+                  {numeral(vout.value).format('0,0.0000')} OBSR
+                   </span>
+              </div>
+            } else {
+              voutValue = <div>
+                <span className="badge badge-success">MN REWARD</span>
+                <span className="badge badge-success">
+                  {numeral(vout.value).format('0,0.0000')} OBSR
+                   </span>
+              </div>
+            }
+            return (
+              {
+                ...vout,
+                address: (
+                  <Link to={`/address/${ vout.address }`}>{vout.address}</Link>
+                ),
+                value: voutValue
+              })
+          } else if (isCoinStake && vout.address !== 'NON_STANDARD') {
             let voutValue
             if (vout.address === this.props.tx.vin[0].address) {
               voutValue = <div>
