@@ -38,14 +38,6 @@ const CardROI = ({ coin }) => {
           Coin Supply (Total)
         </div>
       </div>
-      <div className="mb-3">
-        <div className="h3">
-          { numeral(coin.supply ? coin.supply - (mns * mncoins) : 0.0).format('0,0.0000') } OBSR
-        </div>
-        <div className="h5">
-          Coin Supply (Circulating)
-        </div>
-      </div>
       <div className="mb-5">
         <div className="h3">
           { numeral(coin.cap * coin.btc).format('0,0.0000') } BTC
