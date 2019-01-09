@@ -2,6 +2,7 @@
 const express = require('express');
 const blockex = require('../handler/blockex');
 const iquidus = require('../handler/iquidus');
+const custom = require('../handler/custom');
 
 const router = express.Router();
 
@@ -31,5 +32,8 @@ router.get('/getblockhash', iquidus.getblockhash);
 router.get('/getblock', iquidus.getblock);
 router.get('/getrawtransaction', iquidus.getrawtransaction);
 router.get('/getnetworkhashps', iquidus.getnetworkhashps);
+
+// Custom
+router.get('/custom/supply', custom.getCustomSupply);
 
 module.exports =  router;
