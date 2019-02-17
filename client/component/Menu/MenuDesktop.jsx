@@ -36,11 +36,6 @@ export default class MenuDesktop extends Component {
           key={ idx }
           className={ `menu-desktop__item ${ isActive? 'menu-desktop__item--is-active' : '' }` }
           to={ i.href }>
-          <img
-            alt={ i.label }
-            className="menu-desktop__item-icon"
-            src={ iconSource }
-            title={ this.state.isOpen ? null : i.label } />
           <span className="menu-desktop__item-label" >{ i.label }</span>
           <Icon name="caret-left" className="menu-desktop__item-indicator" />
         </Link>
@@ -56,13 +51,24 @@ export default class MenuDesktop extends Component {
       <div className={ `menu-desktop ${ this.state.isOpen ? 'menu-desktop--open' : 'menu-desktop--close' }` }>
         <div className="menu-desktop__content-wrapper">
           <div className="menu-desktop__header">
-            <img src="/img/whitelogo.png" className="menu-desktop__logo" />
-            <a onClick={ this.handleToggle } >
-              <Icon name="bars" className="menu-desktop__toggle" onClick={ this.handleToggle } />
-            </a>
+          <img src="/img/obsrlogo.png" className="menu-desktop__logo" />
           </div>
-          <p className="menu-desktop__title">MENU</p>
+          <p className="menu-desktop__title"></p>
           { this.getLinks() }
+            <div>
+              <a href="https://t.me/observer_official" target="_blank">
+                <Icon name="telegram" className="fab footer__social-media-icon" />
+              </a>
+              <a href="https://github.com/observernet" target="_blank">
+                <Icon name="github" className="fab footer__social-media-icon" />
+              </a>
+              <a href="https://twitter.com/observerfounda1" target="_blank">
+                <Icon name="twitter" className="fab footer__social-media-icon" />
+              </a>
+              <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
+                <Icon name="facebook" className="fab footer__social-media-icon" />
+              </a>
+            </div>
         </div>
       </div>
     )

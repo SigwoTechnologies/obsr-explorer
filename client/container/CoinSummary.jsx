@@ -40,7 +40,7 @@ class CoinSummary extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-md-12 col-lg-9">
+          <div className="container-fluid">
             <div className="row">
               <div className="col-md-12 col-lg-6">
                 <CardStatus
@@ -52,20 +52,20 @@ class CoinSummary extends Component {
                   supply={ coin.supply }  />
               </div>
               <div className="col-md-12 col-lg-6">
-                <CardNetworkSummary
-                  difficulty={ coin.diff }
-                  hashps={ coin.netHash }
-                  xAxis={ this.props.coins.map(c => c.createdAt) }
-                  yAxis={ this.props.coins.map(c => c.diff ? c.diff : 0.0) } />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-12 col-lg-6">
                 <CardMarket
                   btc={ coin.btc }
                   usd={ coin.usd }
                   xAxis={ this.props.coins.map(c => c.createdAt) }
                   yAxis={ this.props.coins.map(c => c.usd ? c.usd : 0.0) } />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12 col-lg-6">
+                <CardNetworkSummary
+                  difficulty={ coin.diff }
+                  hashps={ coin.netHash }
+                  xAxis={ this.props.coins.map(c => c.createdAt) }
+                  yAxis={ this.props.coins.map(c => c.diff ? c.diff : 0.0) } />
               </div>
               <div className="col-md-12 col-lg-6">
                 <CardMasternodeSummary
@@ -75,16 +75,6 @@ class CoinSummary extends Component {
                   yAxis={ this.props.coins.map(c => c.mnsOn ? c.mnsOn : 0.0) } />
               </div>
             </div>
-          </div>
-          <div className="col-md-12 col-lg-3">
-            <CardPoS
-              average={ coin.avgBlockTime?coin.avgBlockTime:0 }
-              height={ height }
-              posHeight={ 182700 } />
-            <WatchList
-              items={ watchlist }
-              onSearch={ this.props.onSearch }
-              onRemove={ this.props.onRemove } />
           </div>
         </div>
       </div>

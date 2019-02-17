@@ -20,7 +20,7 @@ $margin-lg: 1.5rem;
 
 $menu-gradient-main: #295af5;
 $menu-gradient-secondary: #595ff5;
-$menu-width-open: 240px;
+$menu-width-open: 99%;
 $menu-width-close: 110px;
 $menu-mobile-height: 70px;
 
@@ -69,6 +69,9 @@ $pagination-disabled-color:         $gray;
 $pagination-disabled-bg:            $gray-light;
 $pagination-disabled-border-color:  $gray;
 
+$theme-dark-blue:					#0f65d4;
+$theme-light-blue:					#23e2ec;
+
 @import "~bootstrap/scss/bootstrap.scss";
 @import "./sass/font";
 @import "./sass/card";
@@ -91,6 +94,9 @@ $pagination-disabled-border-color:  $gray;
 
 /* Containers */
 @import "./sass/api";
+.badge-info{
+	background: $theme-dark-blue;
+}
 
 /* Reset */
 html, body {
@@ -126,24 +132,39 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .page-wrapper {
-	display: flex;
-	flex-direction: row;
 	height: 100%;
 
-	@include media-breakpoint-down(sm) {
+/*	@include media-breakpoint-down(sm) {
 		flex-direction: column;
-	}
+	} */
+}
 
+.green-dot {
+	background-color: green;
+	height: 15px;
+	width: 15px;
+	border-radius: 50%;
+	display: inline-block;
+  }
+
+.red-dot {
+	background-color: red;
+	height: 15px;
+	width: 15px;
+	border-radius: 50%;
+	display: inline-block;
 }
 
 .menu-wrapper {
-	display: flex;
-	z-index: $zindex-fixed;
+        position: fixed;
+        z-index: $zindex-fixed;
+        top: 0px;
+        width: 100%;
 }
 
 .badge {
 	border-radius: 2.5px;
-	color: $black;
+	color: $white;
 	font-family: $fontSmall;
 	font-size: 0.85em;
 	font-weight: normal;
@@ -175,11 +196,7 @@ h1, h2, h3, h4, h5, h6 {
 .content {
 	flex: 1;
 	overflow-y: auto;
-
-	@media (min-width: 1600px) {
-		padding-left: $menu-width-open;
-		padding-right: $menu-width-open;
-	}
+        margin-top: 65px;
 
 	@include media-breakpoint-down(sm) {
 		margin-top: $menu-mobile-height;
@@ -211,7 +228,6 @@ h1, h2, h3, h4, h5, h6 {
 
     /*Set margin for content offset*/
 	& + div .menu-desktop--close + & {
-	    margin-left: $menu-width-close;
 		transition: all 1s cubic-bezier(0, 1, .5, 1);
 	}
 }

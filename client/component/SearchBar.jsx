@@ -9,7 +9,7 @@ import Icon from './Icon';
 
 export default class SearchBar extends Component {
   static defaultProps = {
-    placeholder: 'You may enter a block height, block hash, tx hash or address and hit enter.',
+    placeholder: 'You can search by block height, hash, or address.',
   }
 
   static propTypes = {

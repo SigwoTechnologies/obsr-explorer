@@ -9,7 +9,7 @@ const should = chai.should();
 chai.use(http);
 
 describe('API', () => {
-  it('/api/address/:hash', (done) => {
+  it('http://localhost:8081/#/api/address/:hash', (done) => {
     chai.request(server)
       .get('/api/address/bXPPis5Gf4y3stXahsKFfjXaR29TtN7yNd')
       .end((err, res) => {
@@ -19,7 +19,7 @@ describe('API', () => {
       });
   });
 
-  it('/api/block/hash/:hash', (done) => {
+  it('/#/api/block/hash/:hash', (done) => {
     chai.request(server)
       .get('/api/block/hash/0000000000004dbcd7d0ca813e318ea5154357eef2d75bb491fba6e9241949b7')
       .end((err, res) => {

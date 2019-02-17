@@ -24,10 +24,10 @@ class Overview extends Component {
       cols: [
         {title: 'Height', key: 'blockHeight'},
         {title: 'Transaction Hash', key: 'txId'},
-        {title: 'Value', key: 'vout'},
-        'age',
         'recipients',
+        'age',
         {title: 'Created', key: 'createdAt'},
+        {title: 'Value', key: 'vout'},
       ]
     };
   };
@@ -35,21 +35,21 @@ class Overview extends Component {
   render() {
     // Setup the list of transactions with age since created.
     const txs = this.props.txs.map(tx => {
-      const createdAt = moment(tx.createdAt).utc();
+      const createdAt = moment(tx.createdAt).utc();                                                                           
       const diffSeconds = moment().utc().diff(createdAt, 'seconds');
       let blockValue = 0.0;
       if (tx.vout && tx.vout.length) {
         tx.vout.forEach(vout => blockValue += vout.value);
       }
 
-      return ({
+      return ({                                                                                                                                       
         ...tx,
         age: diffSeconds < 60 ? `${ diffSeconds } seconds` : createdAt.fromNow(true),
         blockHeight: (<Link to={ `/block/${ tx.blockHeight }` }>{ tx.blockHeight }</Link>),
         createdAt: date24Format(tx.createdAt),
         recipients: tx.vout.length,
         txId: (<Link to={ `/tx/${ tx.txId }` }>{ tx.txId }</Link>),
-        vout: numeral(blockValue).format('0,0.0000')
+        vout: numeral(blockValue).format('0,0.0000') + ' OBSR'
       });
     });
 

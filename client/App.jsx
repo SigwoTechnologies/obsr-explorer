@@ -34,6 +34,16 @@ import Menu from './component/Menu';
 import Notification from './component/Notification';
 import SearchBar from './component/SearchBar';
 
+const MenuData = [
+  {label: 'Overview', icon: '/img/home.svg', href: '/'},
+  {label: 'Movement', icon: '/img/movement.svg', href: '/movement'},
+  {label: 'Masternode', icon: '/img/masternodes.svg', href: '/masternode'},
+  {label: 'Connections', icon: '/img/connections.svg', href: '/peer'},
+  {label: 'Statistics', icon: '/img/statistics.svg', href: '/statistics'},
+  {label: 'Coin Info', icon: '/img/coininfo.svg', href: '/coin'},
+  {label: 'API', icon: '/img/api.svg', href: '/api'}
+]
+
 class App extends Component {
   static propTypes = {
     // Dispatch
@@ -137,12 +147,75 @@ class App extends Component {
     }
   };
 
+  
   render() {
     if (this.state.init) {
       return (
         <Loading />
       );
     }
+
+    const footer = (
+      <div className="container">
+        <div className="row">
+          <div className="col-3">
+            <img className="footer__logo" src="/img/obsrlogo.png" />
+          </div>
+          <div className="col-6">
+            <div className="menu-desktop">
+              <div className="menu-desktop__content-wrapper">
+                <div className="menu-desktop__item">
+                  <span className="menu-desktop__item-label">
+                  <a href="/">Overview</a>
+                  </span>
+                </div>
+                <div className="menu-desktop__item">
+                  <span className="menu-desktop__item-label">
+                    <a href="/#/movement">Movement</a>
+                  </span>
+                </div>
+                <div className="menu-desktop__item">
+                  <span className="menu-desktop__item-label">
+                    <a href="/#/masternode">Masternode</a>
+                  </span>
+                </div>
+                <div className="menu-desktop__item">
+                  <span className="menu-desktop__item-label">
+                    <a href="/#/peer">Connections</a>
+                  </span>
+                </div>
+                <div className="menu-desktop__item">
+                  <span className="menu-desktop__item-label">
+                    <a href="/#/statistics">Statistics</a>
+                  </span>
+                </div>
+                <div className="menu-desktop__item">
+                  <span className="menu-desktop__item-label">
+                    <a href="/#/api">API</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-3">
+            <div>
+              <a href="https://t.me/observer_official" target="_blank">
+                <Icon name="telegram" className="fab footer__social-media-icon" />
+              </a>
+              <a href="https://github.com/observernet" target="_blank">
+                <Icon name="github" className="fab footer__social-media-icon" />
+              </a>
+              <a href="https://twitter.com/observerfounda1" target="_blank">
+                <Icon name="twitter" className="fab footer__social-media-icon" />
+              </a>
+              <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
+                <Icon name="facebook" className="fab footer__social-media-icon" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
 
     return (
       <HashRouter>
@@ -151,13 +224,17 @@ class App extends Component {
           <div className="content" id="body-content">
             <div className="content__wrapper">
               {/* <Notification /> */}
+              <div className="row container-fluid searchContainer m-0">
+                <div className="col-6 mx-auto"></div>
+              <div className="col-6 mx-auto">
+              <SearchBar
+                className="d-none d-md-block mb-3"
+                onSearch={ this.handleSearch } /></div>
+                </div>
               <CoinSummary
                 onRemove={ this.handleRemove }
                 onSearch={ this.handleSearch }
                 searches={ this.state.searches.reverse() } />
-              <SearchBar
-                className="d-none d-md-block mb-3"
-                onSearch={ this.handleSearch } />
               <div className="content__inner-wrapper">
                 <Switch>
                   <Route exact path="/" component={ Overview } />
@@ -174,10 +251,15 @@ class App extends Component {
                   <Route component={ Error404 } />
                 </Switch>
               </div>
-              <Footer />
-            </div>
+              {/* <Footer /> */}
+              {footer}
+              <div className="text-center">
+                <p>ⓒ Copyright 2018-2019 Observer Foundation- All Rights Reserved</p>
+              </div>
+            </div> 
           </div>
         </div>
+
       </HashRouter>
     );
   };

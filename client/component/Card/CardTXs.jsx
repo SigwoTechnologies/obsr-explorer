@@ -24,8 +24,8 @@ export default class CardTXs extends Component {
       cols: [
         { key: 'blockHeight', title: 'Block Height' },
         { key: 'txId', title: 'Transaction Hash' },
-        { key: 'vout', title: 'Amount' },
         { key: 'createdAt', title: 'Time' },
+        { key: 'vout', title: 'Amount' },
       ]
     };
   };
@@ -50,12 +50,12 @@ export default class CardTXs extends Component {
             createdAt: date24Format(tx.createdAt),
             txId: (
               <Link to={ `/tx/${ tx.txId }` }>
-                { tx.txId }
+                TXID { tx.txId }
               </Link>
             ),
             vout: (
-              <span className={ `badge badge-${ blockValue < 0 ? 'danger' : 'success' }` }>
-                { numeral(blockValue).format('0,0.0000') }
+              <span className={ `badge badge-${ blockValue < 0 ? 'danger' : 'info' }` }>
+                { numeral(blockValue).format('0,0.0000') + " OSBR" }
               </span>
             )
           });

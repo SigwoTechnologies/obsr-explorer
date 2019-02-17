@@ -27,11 +27,11 @@ class Masternode extends Component {
     this.state = {
       cols: [
         { key: 'lastPaidAt', title: 'Last Paid' },
-        { key: 'active', title: 'Active' },
         { key: 'addr', title: 'Address' },
         { key: 'txHash', title: 'Collateral TX' },
         { key: 'txOutIdx', title: 'Index' },
         { key: 'ver', title: 'Version' },
+        { key: 'active', title: 'Active' },
         { key: 'status', title: 'Status' },
       ],
       error: null,
@@ -98,7 +98,7 @@ class Masternode extends Component {
     // Calculate the future so we can use it to
     // sort by lastPaid in descending order.
     const future = moment().add(2, 'years').utc().unix();
-
+    
     return (
       <div>
         <HorizontalRule
@@ -109,18 +109,26 @@ class Masternode extends Component {
           data={ sortBy(this.state.mns.map((mn) => {
             const lastPaidAt = moment(mn.lastPaidAt).utc();
             const isEpoch = lastPaidAt.unix() === 0;
-
+            const add = <span className="text-secondary">Address </span>
+            const cTx = <span className="text-secondary">Collateral TX </span>
+            const txIndex = <span className="text-secondary">Index </span>
+            const ver = <span className="text-secondary">Ver. </span>
             return {
               ...mn,
+              status: (mn.status == 'ENABLED' ? <div className="green-dot" /> : <div className="red-dot" />),
+              txOutIdx: ( <div>{txIndex}{mn.txOutIdx} </div> ),
+              ver: ( <div>{ver}{mn.ver} </div> ),
               active: moment().subtract(mn.active, 'seconds').utc().fromNow(),
               addr: (
                 <Link to={ `/address/${ mn.addr }` }>
+                  { add }
                   { `${ mn.addr.substr(0, 20) }...` }
                 </Link>
               ),
               lastPaidAt: isEpoch ? 'N/A' : date24Format(mn.lastPaidAt),
               txHash: (
                 <Link to={ `/tx/${ mn.txHash }` }>
+                  { cTx }
                   { `${ mn.txHash.substr(0, 20) }...` }
                 </Link>
               )
