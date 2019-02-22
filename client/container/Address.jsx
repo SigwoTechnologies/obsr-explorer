@@ -45,6 +45,7 @@ class Address extends Component {
       && this.state.address !== this.props.match.params.hash) {
        if(!this.state.loading){
         this.getAddress();
+       }
     }
   };
 
