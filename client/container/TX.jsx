@@ -40,7 +40,7 @@ class TX extends Component {
     const { params: { hash } } = this.props.match;
     if (!!this.state.tx.txId && hash !== this.state.tx.txId) {
       if(!this.state.loading){
-        this.getTx();
+        this.getTX();
       }
     }
   };
