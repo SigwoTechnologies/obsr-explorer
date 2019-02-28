@@ -77,8 +77,8 @@ export default class GraphLineFull extends Component {
     let gradientFill;
     if (ctx) {
       gradientFill = ctx.createLinearGradient(canvas.width/2, 0, canvas.width/2, canvas.height*2);
-      gradientFill.addColorStop(0, "rgba(25, 145, 235, 0.6)");
-      gradientFill.addColorStop(1, "rgba(25, 145, 235, 0.0)");
+      gradientFill.addColorStop(0, "rgba(25, 145, 235, 0)");
+      gradientFill.addColorStop(1, "rgba(25, 145, 235, 0)");
     } else {
       gradientFill = false;
     }
