@@ -14,7 +14,7 @@ const CardEarnings = ({ coin }) => {
   const year = blockchain.getMNBlocksPerYear(coin.mnsOn) * subsidy;
 
   const nbtc = v => numeral(v).format('0,0.0000');
-  const nusd = v => numeral(v).format('$0,0.00');
+  const nusd = v => numeral(v).format('$0,0.000');
 
   return (
     <Card title="Estimated Earnings (COIN/BTC/USD)">

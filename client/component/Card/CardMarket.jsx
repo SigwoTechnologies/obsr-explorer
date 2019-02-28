@@ -41,7 +41,7 @@ export default class CardStatus extends Component {
       <Card className="card--market" title="Market">
         <p className="card__data-main bariol">
           <CountUp
-            decimals={ 2 }
+            decimals={ 3 }
             duration={ 1 }
             end={ this.props.usd }
             prefix={ 'OBSR $' }
