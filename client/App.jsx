@@ -221,16 +221,26 @@ class App extends Component {
       <HashRouter>
         <div className="page-wrapper">
           <Menu onSearch={ this.handleSearch } />
+          <div className="row container-fluid searchContainer m-0">
+            <div className="col-6 mx-auto">
+            </div>
+            <div className="col-6 mx-auto">
+              <SearchBar
+                className="d-none d-md-block mb-3"
+                onSearch={ this.handleSearch } />
+            </div>
+          </div>
           <div className="content" id="body-content">
             <div className="content__wrapper">
               {/* <Notification /> */}
-              <div className="row container-fluid searchContainer m-0">
+              {/* <div className="row container-fluid searchContainer m-0">
                 <div className="col-6 mx-auto"></div>
               <div className="col-6 mx-auto">
               <SearchBar
                 className="d-none d-md-block mb-3"
-                onSearch={ this.handleSearch } /></div>
+                onSearch={ this.handleSearch } />
                 </div>
+                </div> */}
               {/* <CoinSummary
                 onRemove={ this.handleRemove }
                 onSearch={ this.handleSearch }
@@ -251,12 +261,12 @@ class App extends Component {
                   <Route component={ Error404 } />
                 </Switch>
               </div>
-              {/* <Footer /> */}
-              {footer}
-              <div className="text-center">
-                <p>ⓒ Copyright 2018-2019 Observer Foundation- All Rights Reserved</p>
-              </div>
-            </div> 
+            </div>
+            {/* <Footer /> */}
+            {footer}
+            <div className="text-center">
+              <p>ⓒ Copyright 2018-2019 Observer Foundation- All Rights Reserved</p>
+            </div>
           </div>
         </div>
 

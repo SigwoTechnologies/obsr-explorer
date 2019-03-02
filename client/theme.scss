@@ -132,7 +132,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .page-wrapper {
-	height: 100%;
+  height: 100%;
 
 /*	@include media-breakpoint-down(sm) {
 		flex-direction: column;
@@ -140,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .green-dot {
-	background-color: green;
+	background-color: #00D54E;
 	height: 15px;
 	width: 15px;
 	border-radius: 50%;
@@ -148,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
 .red-dot {
-	background-color: red;
+	background-color: #ED1C24;
 	height: 15px;
 	width: 15px;
 	border-radius: 50%;
@@ -156,10 +156,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .menu-wrapper {
-        position: fixed;
-        z-index: $zindex-fixed;
-        top: 0px;
-        width: 100%;
+  // position: fixed;
+  // z-index: $zindex-fixed;
+  // top: 0px;
+  // width: 100%;
+  width: 100%;
 }
 
 .badge {
@@ -194,9 +195,9 @@ h1, h2, h3, h4, h5, h6 {
 
 // Content Wrapper
 .content {
-	flex: 1;
+  flex: 1;
 	overflow-y: auto;
-        margin-top: 65px;
+  margin-top: 65px;
 
 	@include media-breakpoint-down(sm) {
 		margin-top: $menu-mobile-height;
@@ -213,16 +214,18 @@ h1, h2, h3, h4, h5, h6 {
 	*/
 
 	&__inner-wrapper {
-		min-height: 50vh;
+    min-height: 50vh;
+    margin-right: 10%;
+    margin-left: 10%;
 	}
 
     &__wrapper {
-		background-color: $white;
-	    margin: 0 auto;
+    background-color: $white;
+	  margin: 0 auto;
 		min-height: 80vh;
 		overflow-x: hidden;
-		padding: 1em 2em 2em;
-	    position: relative;
+		// padding: 1em 2em 2em;
+	  position: relative;
 		transition: all 1s cubic-bezier(0, 1, .5, 1);
     }
 

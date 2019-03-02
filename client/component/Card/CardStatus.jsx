@@ -28,59 +28,58 @@ export default class CardStatus extends Component {
 
   render() {
     const isOn = this.props.status === 'Online';
+    const displayStatus = (
+      <span className={ `u--text-${ isOn ? 'green' : 'red' }`}>
+        {isOn ? <div className="green-dot" /> : <div className="red-dot" />}
+        {' '}
+        { this.props.status }
+      </span>
+    );
 
     return (
       <div className="animated fadeInUp">
-      <Card title="Status" className="card--status" >
-        <div className="card__row">
-          <span className="card__label">Status:</span>
-          <span className="card__result card__result--status">
-            <span className={ `u--text-${ isOn ? 'green' : 'red' }`}>
-              { this.props.status }
+        <Card title="Status" className="card--graph" subTitle={displayStatus} >
+          <div className="card__row">
+            <span className="card__label">Blocks</span>
+            <span className="card__result">
+              <Link to={ `/block/${ this.props.blocks }` }>
+                <b>
+                  <CountUp
+                    decimals={ 0 }
+                    duration={ 1 }
+                    end={ this.props.blocks }
+                    start={ 0 } />
+                </b>
+              </Link>
             </span>
-          </span>
-        </div>
-        <div className="card__row">
-          <span className="card__label">Blocks:</span>
-          <span className="card__result">
-            <Link to={ `/block/${ this.props.blocks }` }>
-              <b>
-                <CountUp
-                  decimals={ 0 }
-                  duration={ 1 }
-                  end={ this.props.blocks }
-                  start={ 0 } />
-              </b>
-            </Link>
-          </span>
-        </div>
-        <div className="card__row">
-          <span className="card__label">Total Supply:</span>
-          <span className="card__result">
-              <b>
-                <CountUp
-                  decimals={ 4 }
-                  duration={ 1 }
-                  end={ this.props.supply }
-                  start={ 0 } />
-              </b>
-          </span>
-        </div>
-        <div className="card__row">
-          <span className="card__label">Peers:</span>
-          <span className="card__result">
-            <Link to="/peer">{ this.props.peers }</Link>
-          </span>
-        </div>
-        <div className="card__row">
-          <span className="card__label">Avg. Block Time:</span>
-          <span className="card__result">{ this.props.avgBlockTime.toFixed(2) } seconds</span>
-        </div>
-        <div className="card__row">
-          <span className="card__label">Avg. MN Payment:</span>
-          <span className="card__result">{ this.props.avgMNTime.toFixed(2) } hours</span>
-        </div>
-      </Card>
+          </div>
+          <div className="card__row">
+            <span className="card__label">Total Supply</span>
+            <span className="card__result">
+                <b>
+                  <CountUp
+                    decimals={ 4 }
+                    duration={ 1 }
+                    end={ this.props.supply }
+                    start={ 0 } />
+                </b>
+            </span>
+          </div>
+          <div className="card__row">
+            <span className="card__label">Peer</span>
+            <span className="card__result">
+              <Link to="/peer">{ this.props.peers }</Link>
+            </span>
+          </div>
+          <div className="card__row">
+            <span className="card__label">Avg. Block Time</span>
+            <span className="card__result">{ this.props.avgBlockTime.toFixed(2) } seconds</span>
+          </div>
+          <div className="card__row--noline">
+            <span className="card__label">Avg. MN Payment</span>
+            <span className="card__result">{ this.props.avgMNTime.toFixed(2) } hours</span>
+          </div>
+        </Card>
       </div>
     );
   };

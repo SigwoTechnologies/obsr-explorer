@@ -18,7 +18,8 @@
 		}
 
 	&__title {
-    padding: 10px 0 8px 0;
+    padding: 18px 0 8px 0;
+    margin: 0 15px 0 15px;
 		font-family: $fontLarge;
 		font-size: 24px;
     border-bottom: 1px solid lightgray;
@@ -36,7 +37,7 @@
     display: inline-block;
     width: 50%;
     text-align: right;
-    }
+  }
   
   &__footer {
     padding: 6px 0 4px 0;
@@ -45,7 +46,29 @@
     color: gray;
     text-align: right;
 		text-transform: capitalize;
-	}
+  }
+  
+  &__inner {
+    padding: 15px 0 15px 0;
+    font-family: $fontSmall;
+    color: gray;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+  }
+
+  &__inner--left {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+		text-transform: capitalize;
+  }
+  
+  &__inner--right {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+  }
 
 	&__body {
 		font-family: $fontLarge;
@@ -55,13 +78,21 @@
 
 	&__result {
 		overflow: hidden;
-		text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    width: 50%;
+    text-align: right;
 	}
 
 	&__row {
-		display: flex;
+    display: flex;
+    padding: 16px 0 16px 0;
+    border-bottom: 1px solid lightgray;
+  }
 
-	}
+  &__row--noline {
+    display: flex;
+    padding: 12px 0 8px 0;
+  }
 
 	&__data-sub {
 		line-height: 2;
@@ -75,7 +106,7 @@
 		padding-right: 10px;
 
 		@include media-breakpoint-up(md) {
-			min-width: 200px;
+			min-width: 50%;
 		}
 	}
 
