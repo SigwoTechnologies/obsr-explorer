@@ -126,7 +126,11 @@ class Statistics extends Component {
         <div>
           <div className="row">
             <div className="col-md-12 col-lg-6">
-              <Card title="Network Hash Rate" subTitle={`${ numeral(netHash.hash).format('0,0.0000') }/s`} footer={`Difficulty: ${ numeral(this.props.coin.diff).format('0,0.0000') }`} className="card--graph">
+              <Card title="Network Hash Rate Last 7 Days" className="card--graph">
+                <h4>{ numeral(netHash.hash).format('0,0.0000') } { netHash.label }/s { day }</h4>
+                <h5>Difficulty: { numeral(this.props.coin.diff).format('0,0.0000') }</h5>
+                <br />
+                <br />
                 <div>
                   <GraphLineFull
                     color="#1991eb"
@@ -137,7 +141,10 @@ class Statistics extends Component {
               </Card>
             </div>
             <div className="col-md-12 col-lg-6">
-              <Card title="Transactions" subTitle={numeral(tTX).format('0,0')} footer={`Average: ${ numeral(avgTX).format('0,0') } Per Hour`} className="card--graph">
+              <Card title="Transactions Last 7 Days" className="card--graph">
+                <h3>Transactions Last 7 Days</h3>
+                <h4>{ numeral(tTX).format('0,0') } { day }</h4>
+                <h5>Average: { numeral(avgTX).format('0,0') } Per Hour</h5>
                 <div>
                   <GraphLineFull
                     color="#1991eb"
@@ -150,7 +157,9 @@ class Statistics extends Component {
           </div>
           <div className="row">
             <div className="col-md-12 col-lg-6">
-              <Card title="OBSR Price USD" subTitle={ numeral(this.props.coin.usd).format('$0,0.00') } footer={`${ numeral(this.props.coin.btc).format('0.00000000') } BTC`} className="card--graph">
+              <Card title="OBSR Price USD" className="card--graph">
+                <h4>{ numeral(this.props.coin.usd).format('$0,0.00') } { day }</h4>
+                <h5>{ numeral(this.props.coin.btc).format('0.00000000') } BTC</h5>
                 <div>
                   <GraphLineFull
                     color="#1991eb"
@@ -161,7 +170,9 @@ class Statistics extends Component {
               </Card>
             </div>
             <div className="col-md-12 col-lg-6">
-              <Card title="Masternodes Online" subTitle={ this.props.coin.mnsOn } footer={`Seen: ${ this.props.coin.mnsOn + this.props.coin.mnsOff }`} className="card--graph">
+              <Card title="Masternodes Online Last 7 Days" className="card--graph">
+                <h4>{ this.props.coin.mnsOn } { day }</h4>
+                <h5>Seen: { this.props.coin.mnsOn + this.props.coin.mnsOff }</h5>
                 <div>
                   <GraphLineFull
                     color="#1991eb"
