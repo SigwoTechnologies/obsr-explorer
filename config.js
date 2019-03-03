@@ -4,7 +4,7 @@
  */
 const config = {
   'api': {
-    'host': 'https://obsr.sigwo.tech',
+    'host': 'http://127.0.0.1',
     'port': '8087',
     'prefix': '/api',
     'timeout': '5s'
