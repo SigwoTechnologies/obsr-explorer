@@ -231,10 +231,10 @@ class App extends Component {
                 className="d-none d-md-block mb-3"
                 onSearch={ this.handleSearch } /></div>
                 </div>
-              {/* <CoinSummary
+              <CoinSummary
                 onRemove={ this.handleRemove }
                 onSearch={ this.handleSearch }
-                searches={ this.state.searches.reverse() } /> */}
+                searches={ this.state.searches.reverse() } />
               <div className="content__inner-wrapper">
                 <Switch>
                   <Route exact path="/" component={ Overview } />

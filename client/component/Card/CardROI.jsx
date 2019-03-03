@@ -14,74 +14,60 @@ const CardROI = ({ coin }) => {
 
   return (
     <Card>
-      <div className="mb-2 border-bottom">
+      <div className="mb-5">
+        <div className="h3">
+          { coin.mnsOn } / { mns }
+        </div>
         <div className="h5">
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'left' }}>
-            Active/Total Masternodes
-          </div>
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'right' }}>
-            { coin.mnsOn } / { mns }
-          </div>
+          Active/Total Masternodes
         </div>
       </div>
-      <div className="mb-2">
+      <div className="mb-5">
+        <div className="h3">
+          { numeral(roi).format('0,0.0000') }%
+        </div>
         <div className="h5">
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'left' }}>
-            Estimated ROI
-          </div>
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'right' }}>
-            { numeral(roi).format('0,0.0000') }%
-          </div>
+          Estimated ROI
         </div>
       </div>
-      <div className="mb-2">
+      <div className="mb-3">
+        <div className="h3">
+          { numeral(coin.supply ? coin.supply : 0.0).format('0,0.0000') } OBSR
+        </div>
         <div className="h5">
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'left' }}>
-            Coin Supply (Total)
-          </div>
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'right' }}>
-            { numeral(coin.supply ? coin.supply : 0.0).format('0,0.0000') } OBSR
-          </div>
+          Coin Supply (Total)
         </div>
       </div>
-      <div className="mb-2">
+      <div className="mb-5">
+        <div className="h3">
+          { numeral(coin.cap * coin.btc).format('0,0.0000') } BTC
+        </div>
         <div className="h5">
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'left' }}>
-            Market Cap BTC
-          </div>
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'right' }}>
-            { numeral(coin.cap * coin.btc).format('0,0.0000') } BTC
-          </div>
+          Market Cap BTC
         </div>
       </div>
-      <div className="mb-2">
+      <div className="mb-5">
+        <div className="h3">
+          { numeral(coin.cap).format('$0,0.00') }
+        </div>
         <div className="h5">
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'left' }}>
-            Market Cap USD
-          </div>
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'right' }}>
-            { numeral(coin.cap).format('$0,0.00') }
-          </div>
+          Market Cap USD
         </div>
       </div>
-      <div className="mb-2">
+      <div className="mb-5">
+        <div className="h3">
+          { numeral(mns * mncoins).format('0,0.0000') } OBSR
+        </div>
         <div className="h5">
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'left' }}>
-            Coins Locked
-          </div>
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'right' }}>
-            { numeral(mns * mncoins).format('0,0.0000') } OBSR
-          </div>
+          Coins Locked
         </div>
       </div>
-      <div className="mb-2">
+      <div className="mb-5">
+        <div className="h3">
+          { numeral(mncoins * coin.btc).format('0,0.0000') } BTC / { numeral(mncoins * coin.usd).format('$0,0.00') }
+        </div>
         <div className="h5">
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'left' }}>
-            Masternode Worth
-          </div>
-          <div style={{ display: 'inline-block', width: '50%', textAlign: 'right' }}>
-            { numeral(mncoins * coin.btc).format('0,0.0000') } BTC / { numeral(mncoins * coin.usd).format('$0,0.00') }
-          </div>
+          Masternode Worth
         </div>
       </div>
     </Card>
