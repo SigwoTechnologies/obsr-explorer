@@ -18,32 +18,10 @@
 		}
 
 	&__title {
-    padding: 10px 0 8px 0;
+		padding: 10px 15px 0px 15px;
 		font-family: $fontLarge;
 		font-size: 24px;
-    border-bottom: 1px solid lightgray;
-    font-weight: bold;
-  }
-  
-  &__title--left {
-    display: inline-block;
-    width: 50%;
-    text-align: left;
-		text-transform: capitalize;
-  }
-  
-  &__title--right {
-    display: inline-block;
-    width: 50%;
-    text-align: right;
-    }
-  
-  &__footer {
-    padding: 6px 0 4px 0;
-    font-family: $fontSmall;
-    font-size: 16px;
-    color: gray;
-    text-align: right;
+		margin-bottom: .8em;
 		text-transform: capitalize;
 	}
 

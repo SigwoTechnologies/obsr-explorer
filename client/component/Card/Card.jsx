@@ -16,17 +16,9 @@ export default class Card extends Component {
       <div
         className={ `card ${ props.className ? props.className : '' }` }
         style={ !!props.style ? props.style : {} }>
-        <div className="card__title">
-          <div className="card__title--left">
-            <p>{ props.title }</p>
-          </div>
-          <div className="card__title--right">
-            <p>{ props.subTitle }</p>
-          </div>
-        </div>
-        <div className="card__footer">
-          <p>{ props.footer }</p>
-        </div>
+        <p className="card__title">
+          { props.title }
+        </p>
         <div className="card__body">
           { props.children }
         </div>
