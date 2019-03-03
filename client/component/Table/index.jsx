@@ -47,9 +47,8 @@ export default class TableWrapper extends Component {
           <td />
         </tr>
         </React.Fragment>
-       
       )
-    })
+    });
 
     return (
       <tbody>

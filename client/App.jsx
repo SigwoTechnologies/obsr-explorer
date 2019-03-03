@@ -156,65 +156,7 @@ class App extends Component {
     }
 
     const footer = (
-      <div className="container">
-        <div className="row">
-          <div className="col-3">
-            <img className="footer__logo" src="/img/obsrlogo.png" />
-          </div>
-          <div className="col-6">
-            <div className="menu-desktop">
-              <div className="menu-desktop__content-wrapper">
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                  <a href="/">Overview</a>
-                  </span>
-                </div>
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                    <a href="/#/movement">Movement</a>
-                  </span>
-                </div>
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                    <a href="/#/masternode">Masternode</a>
-                  </span>
-                </div>
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                    <a href="/#/peer">Connections</a>
-                  </span>
-                </div>
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                    <a href="/#/statistics">Statistics</a>
-                  </span>
-                </div>
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                    <a href="/#/api">API</a>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-3">
-            <div>
-              <a href="https://t.me/observer_official" target="_blank">
-                <Icon name="telegram" className="fab footer__social-media-icon" />
-              </a>
-              <a href="https://github.com/observernet" target="_blank">
-                <Icon name="github" className="fab footer__social-media-icon" />
-              </a>
-              <a href="https://twitter.com/observerfounda1" target="_blank">
-                <Icon name="twitter" className="fab footer__social-media-icon" />
-              </a>
-              <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
-                <Icon name="facebook" className="fab footer__social-media-icon" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Menu onSearch={ this.handleSearch } />
     );
 
     return (
@@ -264,8 +206,10 @@ class App extends Component {
             </div>
             {/* <Footer /> */}
             {footer}
-            <div className="text-center">
-              <p>ⓒ Copyright 2018-2019 Observer Foundation- All Rights Reserved</p>
+            <div className="text-left">
+              <span style={{ fontSize: '14px', color: 'gray', paddingLeft: '160px' }}>
+                ⓒ Copyright 2018-2019 Observer Foundation- All Rights Reserved
+              </span>
             </div>
           </div>
         </div>

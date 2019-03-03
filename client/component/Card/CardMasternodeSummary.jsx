@@ -26,26 +26,34 @@ export default class CardMasternodeSummary extends Component {
   render() {
     const total = this.props.online + this.props.offline;
 
+    const displayMasternode = (
+      <CountUp
+        decimals={0}
+        duration={1}
+        end={total}
+        start={0} />
+    );
+
+    const displayOnline = (
+      <span>
+        Online: {this.props.online}
+      </span>
+    );
+
     return (
       <div className="animated fadeInUp">
-      <Card
-        className="card--graph"
-        title="Masternode">
-        <p className="card__data-main">
-          <CountUp
-            decimals={ 0 }
-            duration={ 1 }
-            end={ total }
-            start={ 0 } />
-        </p>
-        <p className="card__data-sub">Online: { this.props.online }</p>
-        <GraphLine
-          color="#1991eb"
-          className="card__graph"
-          data={ this.props.yAxis.reverse() }
-          height="100px"
-          labels={ this.props.xAxis.reverse() } />
-      </Card>
+        <Card
+          className="card--graph"
+          title="Masternode"
+          subTitle={displayMasternode}
+          footer={displayOnline}>
+          <GraphLine
+            color="#1991eb"
+            className="card__graph"
+            data={this.props.yAxis.reverse()}
+            height="100px"
+            labels={this.props.xAxis.reverse()} />
+        </Card>
       </div>
     );
   };

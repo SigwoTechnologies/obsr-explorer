@@ -41,6 +41,11 @@ class CoinSummary extends Component {
       <div>
         <div className="row">
           <div className="col-md-12 col-lg-6">
+            <CardPoS
+              average={4}
+              height={5}
+              posHeight={6}
+            />
             <CardStatus
               avgBlockTime={ coin.avgBlockTime?coin.avgBlockTime:0 }
               avgMNTime={ coin.avgMNTime?coin.avgMNTime:0 }

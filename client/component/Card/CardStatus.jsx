@@ -42,46 +42,58 @@ export default class CardStatus extends Component {
           <div className="card__row">
             <span className="card__label">Blocks</span>
             <span className="card__result">
-              <Link to={ `/block/${ this.props.blocks }` }>
-                <b>
-                  <CountUp
-                    decimals={ 0 }
-                    duration={ 1 }
-                    end={ this.props.blocks }
-                    start={ 0 } />
-                </b>
-              </Link>
+              {/* <Link to={ `/block/${ this.props.blocks }` }>
+                <CountUp
+                  decimals={ 0 }
+                  duration={ 1 }
+                  end={ this.props.blocks }
+                  start={ 0 } />
+              </Link> */}
+              <CountUp
+                decimals={ 0 }
+                duration={ 1 }
+                end={ this.props.blocks }
+                start={ 0 } />
             </span>
           </div>
           <div className="line-divider" />
           <div className="card__row">
             <span className="card__label">Total Supply</span>
             <span className="card__result">
-                <b>
-                  <CountUp
-                    decimals={ 4 }
-                    duration={ 1 }
-                    end={ this.props.supply }
-                    start={ 0 } />
-                </b>
+              <CountUp
+                decimals={ 4 }
+                duration={ 1 }
+                end={ this.props.supply }
+                start={ 0 } />
             </span>
           </div>
           <div className="line-divider" />
           <div className="card__row">
-            <span className="card__label">Peer</span>
+            <span className="card__label">
+              Peer
+            </span>
             <span className="card__result">
-              <Link to="/peer">{ this.props.peers }</Link>
+              {/* <Link to="/peer">{ this.props.peers }</Link> */}
+              { this.props.peers }
             </span>
           </div>
           <div className="line-divider" />
           <div className="card__row">
-            <span className="card__label">Avg. Block Time</span>
-            <span className="card__result">{ this.props.avgBlockTime.toFixed(2) } seconds</span>
+            <span className="card__label">
+              Avg. Block Time
+            </span>
+            <span className="card__result">
+              { this.props.avgBlockTime.toFixed(2) } seconds
+            </span>
           </div>
           <div className="line-divider" />
           <div className="card__row">
-            <span className="card__label">Avg. MN Payment</span>
-            <span className="card__result">{ this.props.avgMNTime.toFixed(2) } hours</span>
+            <span className="card__label">
+              Avg. MN Payment
+            </span>
+            <span className="card__result">
+              { this.props.avgMNTime.toFixed(2) } hours
+            </span>
           </div>
         </Card>
       </div>

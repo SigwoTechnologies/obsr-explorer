@@ -16,7 +16,7 @@ export default class Card extends Component {
       <div
         className={ `card ${ props.className ? props.className : '' }` }
         style={ !!props.style ? props.style : {} }>
-        <div className="card__title">
+        <div className="card__title--noline">
           <div className="card__title--left">
             <p>{ props.title }</p>
           </div>
@@ -27,9 +27,9 @@ export default class Card extends Component {
         {this.props.footer ? <div className="card__footer">
           <p>{ props.footer }</p>
         </div> : null}
-        <div className="card__body">
+        {this.props.single ? props.children : <div className="card__body">
           { props.children }
-        </div>
+        </div>}
       </div>
     );
   };

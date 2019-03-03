@@ -74,14 +74,14 @@
 	}
 
 	td {
-		min-width: 120px;
+		min-width: 100px;
 		max-width: 450px;
 		overflow: hidden;
 		padding: 8px;
 		padding-right: 5px;
 		text-align: left;
 		text-overflow: ellipsis;
-	}
+  }
 
 	td:first-child {
 		padding-left: 32px;
