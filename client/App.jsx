@@ -245,7 +245,7 @@ class App extends Component {
                 onRemove={ this.handleRemove }
                 onSearch={ this.handleSearch }
                 searches={ this.state.searches.reverse() } /> */}
-              <div className="content__inner-wrapper">
+              <div className="content__inner-wrapper container">
                 <Switch>
                   <Route exact path="/" component={ Overview } />
                   <Route exact path="/address/:hash" component={ Address } />

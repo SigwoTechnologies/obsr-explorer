@@ -18,11 +18,11 @@
 		}
 
 	&__title {
-    padding: 18px 0 8px 0;
-    margin: 0 15px 0 15px;
+    padding: 18px 0 12px 0;
+    margin: 0 26px 6px 26px;
 		font-family: $fontLarge;
 		font-size: 24px;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 3px solid lightgray;
     font-weight: bold;
   }
   
@@ -47,33 +47,14 @@
     text-align: right;
 		text-transform: capitalize;
   }
-  
-  &__inner {
-    padding: 15px 0 15px 0;
-    font-family: $fontSmall;
-    color: gray;
-    font-size: 18px;
-    font-weight: bold;
-    border-bottom: 1px solid lightgray;
-  }
-
-  &__inner--left {
-    display: inline-block;
-    width: 50%;
-    text-align: left;
-		text-transform: capitalize;
-  }
-  
-  &__inner--right {
-    display: inline-block;
-    width: 50%;
-    text-align: right;
-  }
 
 	&__body {
-		font-family: $fontLarge;
+    font-family: $fontSmall;
+    color: gray;
+    font-size: 16px;
+    font-weight: bold;
 		height: 100%;
-		padding: 0px 15px 10px 15px;
+		padding: 14px 26px 22px 26px;
 	}
 
 	&__result {
@@ -85,13 +66,6 @@
 
 	&__row {
     display: flex;
-    padding: 16px 0 16px 0;
-    border-bottom: 1px solid lightgray;
-  }
-
-  &__row--noline {
-    display: flex;
-    padding: 12px 0 8px 0;
   }
 
 	&__data-sub {
@@ -138,7 +112,8 @@
 	}
 
 	&--status &__row {
-		justify-content: flex-start;
+    justify-content: flex-start;
+    
 	}
 
 	&--market {
@@ -174,12 +149,7 @@
 	}
 
 	&--graph {
-
-		@include media-breakpoint-down(lg) {
-			padding: 0;
-		}
-
-		padding: 0 20px;
+    //graph specific
 	}
 
 	&--graph &__data-main {
@@ -191,7 +161,12 @@
 	&--graph &__data-sub {
 		font-size: .8em;
 		color: $gray;
-	}
+  }
+  
+  .line-divider {
+    margin: 10px 0 14px 0;
+    border-bottom: 1px solid #e2e2e2;
+  }
 
 }
 

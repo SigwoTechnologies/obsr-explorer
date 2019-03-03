@@ -38,7 +38,7 @@ export default class CardStatus extends Component {
 
     return (
       <div className="animated fadeInUp">
-      <Card className="card--market" title="Market">
+      <Card className="card--graph" title="Market">
         <p className="card__data-main bariol">
           <CountUp
             decimals={ 3 }

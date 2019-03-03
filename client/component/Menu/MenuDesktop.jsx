@@ -2,6 +2,18 @@
 import Component from 'core/Component';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
 import { Link } from 'react-router-dom';
 
@@ -32,13 +44,14 @@ export default class MenuDesktop extends Component {
       const iconSource = i.icon.split('.svg')[0] + '_white.svg';
 
       return (
-        <Link
-          key={ idx }
-          className={ `menu-desktop__item ${ isActive? 'menu-desktop__item--is-active' : '' }` }
-          to={ i.href }>
-          <span className="menu-desktop__item-label" >{ i.label }</span>
-          <Icon name="caret-left" className="menu-desktop__item-indicator" />
-        </Link>
+        <NavItem>
+          <Link
+            key={ idx }
+            className={ `nav-link ${ isActive? 'nav-link--is-active' : '' }` }
+            to={ i.href }>
+            <span className="menu-desktop__item-label" >{ i.label }</span>
+          </Link>
+        </NavItem>
       )
     }
     )
@@ -48,14 +61,17 @@ export default class MenuDesktop extends Component {
 
   render() {
     return (
-      <div className={ `menu-desktop ${ this.state.isOpen ? 'menu-desktop--open' : 'menu-desktop--close' }` }>
-        <div className="menu-desktop__content-wrapper">
-          <div className="menu-desktop__header">
-          <img src="/img/obsrlogo.png" className="menu-desktop__logo" />
-          </div>
-          <p className="menu-desktop__title"></p>
-          { this.getLinks() }
-            <div>
+      <div>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">
+            <img src="/img/obsrlogo.png" className="menu-desktop__logo" />
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="mr-auto" navbar>
+              { this.getLinks() }
+            </Nav>
+            <Nav navbar className="ml-auto">
               <a href="https://t.me/observer_official" target="_blank">
                 <Icon name="telegram" className="fab footer__social-media-icon" />
               </a>
@@ -68,8 +84,34 @@ export default class MenuDesktop extends Component {
               <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
                 <Icon name="facebook" className="fab footer__social-media-icon" />
               </a>
-            </div>
+              <span className="footer__signature">obsr.org</span>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      {/* <div className={ `menu-desktop ${ this.state.isOpen ? 'menu-desktop--open' : 'menu-desktop--close' }` }>
+        <div className="menu-desktop__content-wrapper">
+          <div className="menu-desktop__header mr-4">
+            <img src="/img/obsrlogo.png" className="menu-desktop__logo" />
+          </div>
+          <div className="menu-desktop__nav">
+            { this.getLinks() }
+          </div>
+          <div className="menu-desktop__social ml-auto">
+            <a href="https://t.me/observer_official" target="_blank">
+              <Icon name="telegram" className="fab footer__social-media-icon" />
+            </a>
+            <a href="https://github.com/observernet" target="_blank">
+              <Icon name="github" className="fab footer__social-media-icon" />
+            </a>
+            <a href="https://twitter.com/observerfounda1" target="_blank">
+              <Icon name="twitter" className="fab footer__social-media-icon" />
+            </a>
+            <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
+              <Icon name="facebook" className="fab footer__social-media-icon" />
+            </a>
+          </div>
         </div>
+      </div> */}
       </div>
     )
   }

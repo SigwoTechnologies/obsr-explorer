@@ -24,9 +24,9 @@ export default class Card extends Component {
             <p>{ props.subTitle }</p>
           </div>
         </div>
-        <div className="card__footer">
+        {this.props.footer ? <div className="card__footer">
           <p>{ props.footer }</p>
-        </div>
+        </div> : null}
         <div className="card__body">
           { props.children }
         </div>

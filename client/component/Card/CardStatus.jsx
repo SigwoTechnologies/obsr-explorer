@@ -38,7 +38,7 @@ export default class CardStatus extends Component {
 
     return (
       <div className="animated fadeInUp">
-        <Card title="Status" className="card--graph" subTitle={displayStatus} >
+        <Card title="Status" className="card--status" subTitle={displayStatus} >
           <div className="card__row">
             <span className="card__label">Blocks</span>
             <span className="card__result">
@@ -53,6 +53,7 @@ export default class CardStatus extends Component {
               </Link>
             </span>
           </div>
+          <div className="line-divider" />
           <div className="card__row">
             <span className="card__label">Total Supply</span>
             <span className="card__result">
@@ -65,17 +66,20 @@ export default class CardStatus extends Component {
                 </b>
             </span>
           </div>
+          <div className="line-divider" />
           <div className="card__row">
             <span className="card__label">Peer</span>
             <span className="card__result">
               <Link to="/peer">{ this.props.peers }</Link>
             </span>
           </div>
+          <div className="line-divider" />
           <div className="card__row">
             <span className="card__label">Avg. Block Time</span>
             <span className="card__result">{ this.props.avgBlockTime.toFixed(2) } seconds</span>
           </div>
-          <div className="card__row--noline">
+          <div className="line-divider" />
+          <div className="card__row">
             <span className="card__label">Avg. MN Payment</span>
             <span className="card__result">{ this.props.avgMNTime.toFixed(2) } hours</span>
           </div>
