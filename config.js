@@ -4,7 +4,8 @@
  */
 const config = {
   'api': {
-    'host': 'https://obsr.sigwo.tech',
+    // Change host to client URL
+    'host': '127.0.0.1',
     'port': '8087',
     'prefix': '/api',
     'timeout': '5s'
