@@ -194,10 +194,14 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+a {
+  outline: none;
+}
+
 // Content Wrapper
 .content {
   flex: 1;
-	overflow-y: auto;
+	// overflow-y: auto;
   margin-top: 65px;
 
 	@include media-breakpoint-down(sm) {

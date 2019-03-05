@@ -86,7 +86,8 @@
 	}
 
 	&__label {
-		padding-right: 10px;
+    width: 50%;
+    text-align: left;
 
 		@include media-breakpoint-up(md) {
 			min-width: 50%;

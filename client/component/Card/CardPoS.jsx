@@ -32,7 +32,7 @@ const CardPoS = ({ average, height, posHeight }) => {
 
   return (
     <div className="animated fadeInUp">
-      <p>wire this up</p>
+      {/* wire this up */}
       <Card
         title="Pos Changeover"
         subTitle={displayChangeover}

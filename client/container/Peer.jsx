@@ -40,6 +40,12 @@ class Peer extends Component {
     } else if (this.state.loading) {
       return this.renderLoading();
     }
+
+    if (this.state.peers) {
+      console.log(
+        this.state.peers[0]
+      )
+    }
     return (
       <div>
         <HorizontalRule title="Connections" />

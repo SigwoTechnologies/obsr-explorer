@@ -124,6 +124,7 @@ class App extends Component {
   };
 
   handleSearch = (term) => {
+    console.log(term)
     // If term doesn't match then ignore.
     if (!isTX(term) && !isBlock(term) && !isAddress(term)) {
       return;
@@ -155,16 +156,13 @@ class App extends Component {
       );
     }
 
-    const footer = (
-      <Menu onSearch={ this.handleSearch } />
-    );
-
     return (
       <HashRouter>
         <div className="page-wrapper">
           <Menu onSearch={ this.handleSearch } />
-          <div className="row container-fluid searchContainer m-0">
+          <div className="row searchContainer m-0">
             <div className="col-6 mx-auto">
+              
             </div>
             <div className="col-6 mx-auto">
               <SearchBar
@@ -187,6 +185,13 @@ class App extends Component {
                 onRemove={ this.handleRemove }
                 onSearch={ this.handleSearch }
                 searches={ this.state.searches.reverse() } /> */}
+                {/* <CoinSummary
+                  onRemove={ this.handleRemove }
+                  onSearch={ this.handleSearch }
+                  searches={ this.state.searches.reverse() } />
+                <SearchBar
+                  className="d-none d-md-block mb-3"
+  onSearch={ this.handleSearch } /> */}
               <div className="content__inner-wrapper container">
                 <Switch>
                   <Route exact path="/" component={ Overview } />
@@ -204,16 +209,12 @@ class App extends Component {
                 </Switch>
               </div>
             </div>
-            {/* <Footer /> */}
-            {footer}
-            <div className="text-left">
-              <span style={{ fontSize: '14px', color: 'gray', paddingLeft: '160px' }}>
-                ⓒ Copyright 2018-2019 Observer Foundation- All Rights Reserved
-              </span>
+            <Footer />
+            <div style={{ fontSize: '14px', color: 'gray', paddingBottom: '40px', textAlign: 'center' }}>
+              <p>ⓒ Copyright 2018-2019 Observer Foundation- All Rights Reserved</p>
             </div>
           </div>
         </div>
-
       </HashRouter>
     );
   };

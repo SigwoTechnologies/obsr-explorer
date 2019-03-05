@@ -122,9 +122,8 @@ class Statistics extends Component {
     return (
       <div className="animated fadeInUp">
         <HorizontalRule title="Statistics" />
-        { Array.from(hashes.keys()).slice(1, -1).length <= 6 && <Notification /> }
-        <div>
-          <div className="row">
+        {/* { Array.from(hashes.keys()).slice(1, -1).length <= 6 && <Notification /> } */}
+        <div className="row">
             <div className="col-md-12 col-lg-6">
               <Card title="Network Hash Rate" subTitle={`${ numeral(netHash.hash).format('0,0.0000') }/s`} footer={`Difficulty: ${ numeral(this.props.coin.diff).format('0,0.0000') }`} className="card--graph">
                 <div>
@@ -148,7 +147,7 @@ class Statistics extends Component {
               </Card>
             </div>
           </div>
-          <div className="row">
+        <div className="row">
             <div className="col-md-12 col-lg-6">
               <Card title="OBSR Price USD" subTitle={ numeral(this.props.coin.usd).format('$0,0.00') } footer={`${ numeral(this.props.coin.btc).format('0.00000000') } BTC`} className="card--graph">
                 <div>
@@ -172,7 +171,6 @@ class Statistics extends Component {
               </Card>
             </div>
           </div>
-        </div>
       </div>
     );
   };

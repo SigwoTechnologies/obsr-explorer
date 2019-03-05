@@ -17,7 +17,7 @@ class Menu extends Component {
   render() {
     return (
       <div className="menu-wrapper">
-        <MenuMobile links={ menuData } onSearch={ this.props.onSearch } />
+        {/* <MenuMobile links={ menuData } onSearch={ this.props.onSearch } /> */}
         <MenuDesktop links={ menuData } location={ this.props.location } />
       </div>
     )

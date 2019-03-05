@@ -62,11 +62,9 @@ class Overview extends Component {
       <div>
         <CoinSummary />
         <HorizontalRule title="Latest Blocks" />
-        <div>
-          <Table
-            cols={ this.state.cols }
-            data={ txs } />
-        </div>
+        <Table
+          cols={ this.state.cols }
+          data={ txs } />
       </div>
     );
   };

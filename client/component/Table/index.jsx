@@ -39,13 +39,13 @@ export default class TableWrapper extends Component {
       });
 
       return (
-        <React.Fragment>
-           <tr key={ idx }>
-          { cells }
-        </tr>
-        <tr className="table-spacer">
-          <td />
-        </tr>
+        <React.Fragment key={idx}>
+          <tr>
+            { cells }
+          </tr>
+          <tr className="table-spacer">
+            <td />
+          </tr>
         </React.Fragment>
       )
     });

@@ -42,6 +42,9 @@ class Footer extends Component {
             <div className="footer__data-block">
               <a href="/#/api">API</a>
             </div>
+            <div className="footer__data-block">
+              <a href="/#/coin">OBSR Info</a>
+            </div>
           </div>
         </div>
         <div className="footer__block">
