@@ -34,6 +34,7 @@ else {
 
   /* Database */
   // Connect to the database.
+  mongoose.set('useCreateIndex', true);
   mongoose.connect(db.getDSN(), db.getOptions());
 
   /* API */
