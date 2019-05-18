@@ -166,8 +166,8 @@ class App extends Component {
               {/* <Notification /> */}
               <div className="row container-fluid searchContainer m-0">
                 <div className="container">
-                  <div className="col-6 mx-auto"></div>
-                  <div className="col-6 mx-auto">
+                  <div className="col-6"></div>
+                  <div className="col-6 ml-auto">
                     <SearchBar
                       className="d-none d-md-block mb-3"
                       onSearch={ this.handleSearch } />
