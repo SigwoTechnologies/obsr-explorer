@@ -1,11 +1,9 @@
-
 /**
  * Global configuration object.
  */
 const config = {
   'api': {
-    // Change host to client URL
-    'host': '127.0.0.1',
+    'host': 'http://127.0.0.1',
     'port': '8087',
     'prefix': '/api',
     'timeout': '5s'
@@ -18,8 +16,8 @@ const config = {
     'host': '127.0.0.1',
     'port': '27017',
     'name': 'obsr',
-    'user': 'obsr',
-    'pass': 'obsr'
+    'user': 'obsrUser',
+    'pass': 'obsrPass'
   },
   'freegeoip': {
     'api': 'https://extreme-ip-lookup.com/json/'
@@ -27,10 +25,11 @@ const config = {
   'rpc': {
     'host': '127.0.0.1',
     'port': '9568',
-    'user': 'test',
-    'pass': 'test',
+    'user': 'testUser',
+    'pass': 'testPass',
     'timeout': 8000, // 8 seconds
   }
 };
 
 module.exports = config;
+

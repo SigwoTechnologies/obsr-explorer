@@ -17,7 +17,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <div className="footer">
+      <div className="footer container">
         <div className="footer__block">
           <img className="footer__logo" src="/img/obsrlogo.png" />
         </div>
@@ -48,21 +48,19 @@ class Footer extends Component {
           </div>
         </div>
         <div className="footer__block">
-          <div className="footer__social-media-wrapper">
-            <div>
-              <a href="https://t.me/observer_official" target="_blank">
-                <Icon name="telegram" className="fab footer__social-media-icon" />
-              </a>
-              <a href="https://github.com/observernet" target="_blank">
-                <Icon name="github" className="fab footer__social-media-icon" />
-              </a>
-              <a href="https://twitter.com/observerfounda1" target="_blank">
-                <Icon name="twitter" className="fab footer__social-media-icon" />
-              </a>
-              <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
-                <Icon name="facebook" className="fab footer__social-media-icon" />
-              </a>
-            </div>
+          <div className="menu-desktop__social ml-auto">
+            <a href="https://t.me/observer_official" target="_blank">
+              <Icon name="telegram" className="fab footer__social-media-icon" />
+            </a>
+            <a href="https://github.com/observernet" target="_blank">
+              <Icon name="github" className="fab footer__social-media-icon" />
+            </a>
+            <a href="https://twitter.com/observerfounda1" target="_blank">
+              <Icon name="twitter" className="fab footer__social-media-icon" />
+            </a>
+            <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
+              <Icon name="facebook" className="fab footer__social-media-icon" />
+            </a>
           </div>
         </div>
       </div>

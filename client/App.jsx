@@ -26,11 +26,12 @@ import Top100 from './container/Top100';
 import TX from './container/TX';
 
 // Layout
-import CoinSummary from './container/CoinSummary';
-import Footer from './component/Footer';
+// import CoinSummary from './container/CoinSummary';
+// import Footer from './component/Footer';
 import Icon from './component/Icon';
 import Loading from './component/Loading';
 import Menu from './component/Menu';
+import FooterMenu from './component/Menu';
 import Notification from './component/Notification';
 import SearchBar from './component/SearchBar';
 
@@ -160,39 +161,20 @@ class App extends Component {
       <HashRouter>
         <div className="page-wrapper">
           <Menu onSearch={ this.handleSearch } />
-          <div className="row searchContainer m-0">
-            <div className="col-6 mx-auto">
-              
-            </div>
-            <div className="col-6 mx-auto">
-              <SearchBar
-                className="d-none d-md-block mb-3"
-                onSearch={ this.handleSearch } />
-            </div>
-          </div>
           <div className="content" id="body-content">
             <div className="content__wrapper">
               {/* <Notification /> */}
-              {/* <div className="row container-fluid searchContainer m-0">
-                <div className="col-6 mx-auto"></div>
-              <div className="col-6 mx-auto">
-              <SearchBar
-                className="d-none d-md-block mb-3"
-                onSearch={ this.handleSearch } />
+              <div className="row container-fluid searchContainer m-0">
+                <div className="container">
+                  <div className="col-6 mx-auto"></div>
+                  <div className="col-6 mx-auto">
+                    <SearchBar
+                      className="d-none d-md-block mb-3"
+                      onSearch={ this.handleSearch } />
+                  </div>
                 </div>
-                </div> */}
-              {/* <CoinSummary
-                onRemove={ this.handleRemove }
-                onSearch={ this.handleSearch }
-                searches={ this.state.searches.reverse() } /> */}
-                {/* <CoinSummary
-                  onRemove={ this.handleRemove }
-                  onSearch={ this.handleSearch }
-                  searches={ this.state.searches.reverse() } />
-                <SearchBar
-                  className="d-none d-md-block mb-3"
-  onSearch={ this.handleSearch } /> */}
-              <div className="content__inner-wrapper container">
+              </div>
+              <div className="content__inner-wrapper container mt-4">
                 <Switch>
                   <Route exact path="/" component={ Overview } />
                   <Route exact path="/address/:hash" component={ Address } />
@@ -209,9 +191,11 @@ class App extends Component {
                 </Switch>
               </div>
             </div>
-            <Footer />
-            <div style={{ fontSize: '14px', color: 'gray', paddingBottom: '40px', textAlign: 'center' }}>
+            {/* <Footer /> */}
+            <FooterMenu onSearch={ this.handleSearch } />
+            <div className="container" style={{ fontSize: '14px', color: 'gray', paddingBottom: '40px', textAlign: 'left' }}>
               <p>ⓒ Copyright 2018-2019 Observer Foundation- All Rights Reserved</p>
+              <span style={{ textAlign: 'right' }}>obsr.org</span>
             </div>
           </div>
         </div>

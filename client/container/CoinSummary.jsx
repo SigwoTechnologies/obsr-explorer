@@ -16,12 +16,12 @@ import WatchList from '../component/WatchList';
 
 class CoinSummary extends Component {
   static propTypes = {
-    onSearch: PropTypes.func.isRequired,
-    onRemove: PropTypes.func.isRequired,
-    searches: PropTypes.array.isRequired,
+    // onSearch: PropTypes.func.isRequired,
+    // onRemove: PropTypes.func.isRequired,
+    // searches: PropTypes.array.isRequired,
     // State
-    coins: PropTypes.array.isRequired,
-    txs: PropTypes.array.isRequired,
+    // coins: PropTypes.array.isRequired,
+    // txs: PropTypes.array.isRequired,
   };
 
   render() {
@@ -33,9 +33,11 @@ class CoinSummary extends Component {
       ? this.props.txs[0].blockHeight
       : coin.blocks;
 
-    const watchlist = height >= 182700
+    if (this.props.seraches) {
+      const watchlist = height >= 182700
       ? this.props.searches
       : this.props.searches.slice(0, 7);
+    }
 
     return (
       <div>
