@@ -15,7 +15,6 @@ class Menu extends Component {
   };
 
   render() {
-    console.log('menuData', menuData);
     return (
       <div className="menu-wrapper">
         {/* <MenuMobile links={ menuData } onSearch={ this.props.onSearch } /> */}
