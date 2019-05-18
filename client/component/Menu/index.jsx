@@ -5,19 +5,19 @@ import React from 'react';
 import { withRouter } from 'react-router';
 
 import MenuDesktop from './MenuDesktop';
-import MenuMobile from './MenuMobile';
+// import MenuMobile from './MenuMobile';
 import menuData from './menuData';
 
 
 class Menu extends Component {
   static propTypes = {
-    onSearch: PropTypes.func.isRequired
+    // onSearch: PropTypes.func.isRequired
   };
 
   render() {
     return (
       <div className="menu-wrapper">
-        <MenuMobile links={ menuData } onSearch={ this.props.onSearch } />
+        {/* <MenuMobile links={ menuData } onSearch={ this.props.onSearch } /> */}
         <MenuDesktop links={ menuData } location={ this.props.location } />
       </div>
     )

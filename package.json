@@ -7,7 +7,7 @@
   "author": "Dustin Engle <dustin@dustinengle.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn run build:web",
+    "build": "npm run build:web",
     "build:web": "NODE_ENV=production webpack --progress --colors",
     "cron:block": "./script/cron_block.sh >> ./tmp/block.log",
     "cron:coin": "node ./cron/coin.js >> ./tmp/coin.log",
@@ -37,7 +37,7 @@
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.5",
     "moment": "^2.20.1",
-    "mongoose": "^5.4.3",
+    "mongoose": "^5.4.17",
     "morgan": "^1.9.0",
     "node-bitcoin-rpc": "^1.1.3",
     "numeral": "^2.0.6",

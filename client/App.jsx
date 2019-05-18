@@ -26,11 +26,12 @@ import Top100 from './container/Top100';
 import TX from './container/TX';
 
 // Layout
-import CoinSummary from './container/CoinSummary';
-import Footer from './component/Footer';
+// import CoinSummary from './container/CoinSummary';
+// import Footer from './component/Footer';
 import Icon from './component/Icon';
 import Loading from './component/Loading';
 import Menu from './component/Menu';
+import FooterMenu from './component/Menu';
 import Notification from './component/Notification';
 import SearchBar from './component/SearchBar';
 
@@ -124,6 +125,7 @@ class App extends Component {
   };
 
   handleSearch = (term) => {
+    console.log(term)
     // If term doesn't match then ignore.
     if (!isTX(term) && !isBlock(term) && !isAddress(term)) {
       return;
@@ -155,68 +157,6 @@ class App extends Component {
       );
     }
 
-    const footer = (
-      <div className="container">
-        <div className="row">
-          <div className="col-3">
-            <img className="footer__logo" src="/img/obsrlogo.png" />
-          </div>
-          <div className="col-6">
-            <div className="menu-desktop">
-              <div className="menu-desktop__content-wrapper">
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                  <a href="/">Overview</a>
-                  </span>
-                </div>
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                    <a href="/#/movement">Movement</a>
-                  </span>
-                </div>
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                    <a href="/#/masternode">Masternode</a>
-                  </span>
-                </div>
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                    <a href="/#/peer">Connections</a>
-                  </span>
-                </div>
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                    <a href="/#/statistics">Statistics</a>
-                  </span>
-                </div>
-                <div className="menu-desktop__item">
-                  <span className="menu-desktop__item-label">
-                    <a href="/#/api">API</a>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-3">
-            <div>
-              <a href="https://t.me/observer_official" target="_blank">
-                <Icon name="telegram" className="fab footer__social-media-icon" />
-              </a>
-              <a href="https://github.com/observernet" target="_blank">
-                <Icon name="github" className="fab footer__social-media-icon" />
-              </a>
-              <a href="https://twitter.com/observerfounda1" target="_blank">
-                <Icon name="twitter" className="fab footer__social-media-icon" />
-              </a>
-              <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
-                <Icon name="facebook" className="fab footer__social-media-icon" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-
     return (
       <HashRouter>
         <div className="page-wrapper">
@@ -225,17 +165,16 @@ class App extends Component {
             <div className="content__wrapper">
               {/* <Notification /> */}
               <div className="row container-fluid searchContainer m-0">
-                <div className="col-6 mx-auto"></div>
-              <div className="col-6 mx-auto">
-              <SearchBar
-                className="d-none d-md-block mb-3"
-                onSearch={ this.handleSearch } /></div>
+                <div className="container">
+                  <div className="col-6"></div>
+                  <div className="col-6 ml-auto">
+                    <SearchBar
+                      className="d-none d-md-block mb-3"
+                      onSearch={ this.handleSearch } />
+                  </div>
                 </div>
-              <CoinSummary
-                onRemove={ this.handleRemove }
-                onSearch={ this.handleSearch }
-                searches={ this.state.searches.reverse() } />
-              <div className="content__inner-wrapper">
+              </div>
+              <div className="content__inner-wrapper container mt-4">
                 <Switch>
                   <Route exact path="/" component={ Overview } />
                   <Route exact path="/address/:hash" component={ Address } />
@@ -251,15 +190,15 @@ class App extends Component {
                   <Route component={ Error404 } />
                 </Switch>
               </div>
-              {/* <Footer /> */}
-              {footer}
-              <div className="text-center">
-                <p>ⓒ Copyright 2018-2019 Observer Foundation- All Rights Reserved</p>
-              </div>
-            </div> 
+            </div>
+            {/* <Footer /> */}
+            <FooterMenu onSearch={ this.handleSearch } />
+            <div className="container" style={{ fontSize: '14px', color: 'gray', paddingBottom: '40px', textAlign: 'left' }}>
+              <p>ⓒ Copyright 2018-2019 Observer Foundation- All Rights Reserved</p>
+              <span style={{ textAlign: 'right' }}>obsr.org</span>
+            </div>
           </div>
         </div>
-
       </HashRouter>
     );
   };

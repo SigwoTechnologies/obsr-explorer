@@ -16,12 +16,22 @@ export default class Card extends Component {
       <div
         className={ `card ${ props.className ? props.className : '' }` }
         style={ !!props.style ? props.style : {} }>
-        <p className="card__title">
-          { props.title }
-        </p>
-        <div className="card__body">
-          { props.children }
+        <div className="card__title--noline">
+          <div className="card__title--left" className={`card__title${props.subTitle ? '--left' : null}`}>
+            { props.title }
+          </div>
+          {props.subTitle ? (
+            <div className="card__title--right">
+              {props.subTitle}
+            </div>
+          ) : null}
         </div>
+        {this.props.footer ? <div className="card__footer">
+          { props.footer }
+        </div> : null}
+        {this.props.single ? props.children : <div className="card__body">
+          { props.children }
+        </div>}
       </div>
     );
   };

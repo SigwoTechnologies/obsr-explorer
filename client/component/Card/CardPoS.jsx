@@ -24,27 +24,20 @@ const CardPoS = ({ average, height, posHeight }) => {
     dur /= 60.0;
   }
 
+  const displayChangeover = (
+    <span>
+      { dur.toFixed(2) } { label }
+    </span>
+  );
+
   return (
-    <div className="watch-list">
-      <p className="watch-list__title">PoS Changeover</p>
-      <div className="animated fadeIn">
-        <div className="watch-list__item back-green">
-          <div>
-            <Icon name="check-circle" className="far watch-list__item-close"  />
-          </div>
-          <div className="watch-list__item-text">
-            <h4
-              className="text-center text-white"
-              style={{
-                fontSize: '22px',
-                height: '22px',
-                lineHeight: '20px'
-              }}>
-              { dur.toFixed(2) } { label }
-            </h4>
-          </div>
-        </div>
-      </div>
+    <div className="animated fadeInUp">
+      {/* wire this up */}
+      <Card
+        title="Pos Changeover"
+        subTitle={displayChangeover}
+        single>
+      </Card>
     </div>
   );
 };

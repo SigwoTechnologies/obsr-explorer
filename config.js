@@ -1,4 +1,3 @@
-
 /**
  * Global configuration object.
  */
@@ -33,3 +32,4 @@ const config = {
 };
 
 module.exports = config;
+

@@ -4,8 +4,8 @@ const MenuData = [
   {label: 'Masternode', icon: '/img/masternodes.svg', href: '/masternode'},
   {label: 'Connections', icon: '/img/connections.svg', href: '/peer'},
   {label: 'Statistics', icon: '/img/statistics.svg', href: '/statistics'},
-  {label: 'Coin Info', icon: '/img/coininfo.svg', href: '/coin'},
-  {label: 'API', icon: '/img/api.svg', href: '/api'}
+  {label: 'API', icon: '/img/api.svg', href: '/api'},
+  {label: 'OBSR Info', icon: '/img/coininfo.svg', href: '/coin'}
 ]
 
 export default MenuData;

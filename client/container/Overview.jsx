@@ -9,6 +9,11 @@ import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Card from '../component/Card/Card';
+
+import GraphLineFull from '../component/Graph/GraphLineFull';
+import CoinSummary from '../container/CoinSummary';
+
 import HorizontalRule from '../component/HorizontalRule';
 import Table from '../component/Table';
 
@@ -55,6 +60,7 @@ class Overview extends Component {
 
     return (
       <div>
+        <CoinSummary />
         <HorizontalRule title="Latest Blocks" />
         <Table
           cols={ this.state.cols }

@@ -21,7 +21,7 @@
 
 	&__logo {
 		display: inline-block;
-		height: 60px;
+		height: 40px;
 		margin-right: 1em;
 	}
 
@@ -58,17 +58,23 @@
 	}
 
 	&__social-media-icon {
-		color: $gray;
-		font-size: 2em;
-		margin-right: .5em;
+		color: $gray-dark;
+		font-size: 1.25em;
+		margin-right: 0.5em;
 		text-align: center;
 
 		&:hover,
 		&:focus {
 			color: initial;
-		}
-
-	}
+    }
+  }
+  
+  &__signature {
+    color: $gray-dark;
+		font-size: 0.75em;
+		margin-right: .5em;
+		text-align: center;
+  }
 
 	@include media-breakpoint-up(md) {
 		/* position: fixed; */
