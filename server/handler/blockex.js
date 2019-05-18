@@ -311,7 +311,7 @@ const getMasternodes = async (req, res) => {
   try {
     const limit = req.query.limit ? parseInt(req.query.limit, 10) : 1000;
     const skip = req.query.skip ? parseInt(req.query.skip, 10) : 0;
-    const total = await Masternode.find().sort({ lastPaidAt: -1, status: 1 }).count();
+    const total = await Masternode.find().sort({ lastPaidAt: -1, status: 1 }).countDocuments();
     const mns = await Masternode.find().skip(skip).limit(limit).sort({ lastPaidAt: -1, status: 1 });
 
     res.json({ mns, pages: total <= limit ? 1 : Math.ceil(total / limit) });
@@ -496,7 +496,7 @@ const getTXs = async (req, res) => {
   try {
     const limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
     const skip = req.query.skip ? parseInt(req.query.skip, 10) : 0;
-    const total = await TX.find().sort({ blockHeight: -1 }).count();
+    const total = await TX.find().sort({ blockHeight: -1 }).countDocuments();
     const txs = await TX.find().skip(skip).limit(limit).sort({ blockHeight: -1 });
 
     res.json({ txs, pages: total <= limit ? 1 : Math.ceil(total / limit) });
