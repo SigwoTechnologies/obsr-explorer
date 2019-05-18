@@ -17,12 +17,14 @@ export default class Card extends Component {
         className={ `card ${ props.className ? props.className : '' }` }
         style={ !!props.style ? props.style : {} }>
         <div className="card__title--noline">
-          <div className="card__title--left">
+          <div className="card__title--left" className={`card__title${props.subTitle ? '--left' : null}`}>
             { props.title }
           </div>
-          <div className="card__title--right">
-            {props.subTitle}
-          </div>
+          {props.subTitle ? (
+            <div className="card__title--right">
+              {props.subTitle}
+            </div>
+          ) : null}
         </div>
         {this.props.footer ? <div className="card__footer">
           { props.footer }
