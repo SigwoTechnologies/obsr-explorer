@@ -40,7 +40,7 @@ const MenuData = [
   {label: 'Movement', icon: '/img/movement.svg', href: '/movement'},
   {label: 'Masternode', icon: '/img/masternodes.svg', href: '/masternode'},
   {label: 'Connections', icon: '/img/connections.svg', href: '/peer'},
-  {label: 'Statistics', icon: '/img/statistics.svg', href: '/statistics'},
+  // {label: 'Statistics', icon: '/img/statistics.svg', href: '/statistics'},
   {label: 'Coin Info', icon: '/img/coininfo.svg', href: '/coin'},
   {label: 'API', icon: '/img/api.svg', href: '/api'}
 ]
@@ -185,7 +185,7 @@ class App extends Component {
                   <Route exact path="/masternode" component={ Masternode } />
                   <Route exact path="/movement" component={ Movement } />
                   <Route exact path="/peer" component={ Peer } />
-                  <Route exact path="/statistics" component={ Statistics } />
+                  {/* <Route exact path="/statistics" component={ Statistics } /> */}
                   <Route exact path="/tx/:hash" component={ TX } />
                   <Route component={ Error404 } />
                 </Switch>

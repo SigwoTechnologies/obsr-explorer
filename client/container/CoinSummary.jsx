@@ -2,6 +2,8 @@
 import Actions from '../core/Actions';
 import Component from '../core/Component';
 import { connect } from 'react-redux';
+import moment from 'moment';
+import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -17,12 +19,42 @@ import WatchList from '../component/WatchList';
 
 class CoinSummary extends Component {
   static propTypes = {
+    // State
+    coin: PropTypes.object.isRequired,
+    // Dispatch
+    getCoins: PropTypes.func.isRequired,
+    getTXs: PropTypes.func.isRequired
     // onSearch: PropTypes.func.isRequired,
     // onRemove: PropTypes.func.isRequired,
     // searches: PropTypes.array.isRequired,
     // State
     // coins: PropTypes.array.isRequired,
     // txs: PropTypes.array.isRequired,
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      coins: [],
+      error: null,
+      loading: true,
+      txs: []
+    };
+  };
+
+  componentDidMount() {
+    Promise.all([
+        this.props.getCoins(),
+        this.props.getTXs()
+      ])
+      .then((res) => {
+        this.setState({
+          coins: res[0], // 7 days at 5 min = 2016 coins
+          loading: false,
+          txs: res[1]
+        });
+      });
   };
 
   render() {
@@ -39,6 +71,13 @@ class CoinSummary extends Component {
       ? this.props.searches
       : this.props.searches.slice(0, 7);
     }
+
+    let tTX = 0;
+    this.state.txs.forEach((tx) => {
+      tTX += tx.total;
+    });
+    const avgTX = ((tTX / 7) / 24) / this.state.txs.length;
+    const day = (<small>{ moment().format('MMM DD') }</small>);
 
     return (
       <div>
@@ -63,9 +102,21 @@ class CoinSummary extends Component {
               usd={ coin.usd }
               xAxis={ this.props.coins.map(c => c.createdAt) }
               yAxis={ this.props.coins.map(c => c.usd ? c.usd : 0.0) } />
-            <CardTxPerDay
-              txDay={ coin.txDay }
-            />  
+            {/* <CardTxPerDay
+              avgTX={ tTX }
+            />   */}
+            <div className="card">
+              <div className="col-md-12 col-lg-6">
+                <h3>Transactions Last 7 Days</h3>
+                <h4>{ numeral(tTX).format('0,0') } { day }</h4>
+                <h5>Average: { numeral(avgTX).format('0,0') } Per Hour</h5>
+                {/* <GraphLineFull
+                  color="#1991eb"
+                  data={ Array.from(txs.values()) }
+                  height="420px"
+                  labels={ Array.from(txs.keys()) } /> */}
+              </div>
+            </div>
           </div>
         </div>
         <div className="row">
@@ -89,9 +140,15 @@ class CoinSummary extends Component {
   };
 }
 
-const mapState = state => ({
-  coins: state.coins,
-  txs: state.txs
+const mapDispatch = dispatch => ({
+  getCoins: () => Actions.getCoinsWeek(dispatch),
+  getTXs: () => Actions.getTXsWeek(dispatch)
 });
 
-export default connect(mapState)(CoinSummary);
+const mapState = state => ({
+  coins: state.coins,
+  txs: state.txs,
+  coin: state.coin
+});
+
+export default connect(mapState, mapDispatch)(CoinSummary);
