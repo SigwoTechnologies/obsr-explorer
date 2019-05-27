@@ -13,61 +13,49 @@ const CardROI = ({ coin }) => {
   const roi = blockchain.getROI(subsidy, coin.mnsOn);
 
   return (
-    <Card>
-      <div className="mb-5">
-        <div className="h3">
-          { coin.mnsOn } / { mns }
-        </div>
-        <div className="h5">
+    <Card title="Observer Information and Metrics">
+      <div className="row">
+        <div className="col-sm-12 col-md-6">
           Active/Total Masternodes
         </div>
-      </div>
-      <div className="mb-5">
-        <div className="h3">
-          { numeral(roi).format('0,0.0000') }%
+        <div className="col-sm-12 col-md-3">
+          { coin.mnsOn } / { mns }
         </div>
-        <div className="h5">
+        <div className="col-sm-12 col-md-6">
           Estimated ROI
         </div>
-      </div>
-      <div className="mb-3">
-        <div className="h3">
-          { numeral(coin.supply ? coin.supply : 0.0).format('0,0.0000') } OBSR
+        <div className="col-sm-12 col-md-3">
+          { numeral(roi).format('0,0.0000') }%
         </div>
-        <div className="h5">
+        <div className="col-sm-12 col-md-6">
           Coin Supply (Total)
         </div>
-      </div>
-      <div className="mb-5">
-        <div className="h3">
-          { numeral(coin.cap * coin.btc).format('0,0.0000') } BTC
+        <div className="col-sm-12 col-md-6">
+          { numeral(coin.supply ? coin.supply : 0.0).format('0,0.0000') }
         </div>
-        <div className="h5">
+        <div className="col-sm-12 col-md-6">
           Market Cap BTC
         </div>
-      </div>
-      <div className="mb-5">
-        <div className="h3">
-          { numeral(coin.cap).format('$0,0.00') }
+        <div className="col-sm-12 col-md-6">
+          { numeral(coin.cap * coin.btc).format('0,0.0000') } BTC
         </div>
-        <div className="h5">
+        <div className="col-sm-12 col-md-6">
           Market Cap USD
         </div>
-      </div>
-      <div className="mb-5">
-        <div className="h3">
+        <div className="col-sm-12 col-md-6">
+          { numeral(coin.cap).format('$0,0.00') }
+        </div>
+        <div className="col-sm-12 col-md-6">
+          Coins Locked 
+        </div>
+        <div className="col-sm-12 col-md-6">
           { numeral(mns * mncoins).format('0,0.0000') } OBSR
         </div>
-        <div className="h5">
-          Coins Locked
-        </div>
-      </div>
-      <div className="mb-5">
-        <div className="h3">
-          { numeral(mncoins * coin.btc).format('0,0.0000') } BTC / { numeral(mncoins * coin.usd).format('$0,0.00') }
-        </div>
-        <div className="h5">
+        <div className="col-sm-12 col-md-6">
           Masternode Worth
+        </div>
+        <div className="col-sm-12 col-md-6">
+          { numeral(mncoins * coin.btc).format('0,0.0000') } BTC / { numeral(mncoins * coin.usd).format('$0,0.00') }
         </div>
       </div>
     </Card>
