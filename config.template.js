@@ -4,31 +4,31 @@
  */
 const config = {
   'api': {
-    'host': 'https://explorer.bulwarkcrypto.com',
-    'port': '443',
+    'host': 'http://127.0.0.1',
+    'port': '8087',
     'prefix': '/api',
-    'timeout': '5s'
+    'timeout': '30s'
   },
   'coinMarketCap': {
     'api': 'http://api.coinmarketcap.com/v1/ticker/',
-    'ticker': 'bulwark'
+    'ticker': 'observer'
   },
   'db': {
     'host': '127.0.0.1',
     'port': '27017',
-    'name': 'blockex',
-    'user': 'blockexuser',
-    'pass': 'Explorer!1'
+    'name': 'obsr',
+    'user': 'obsr',
+    'pass': 'obsr'
   },
   'freegeoip': {
-    'api': 'http://freegeoip.net/json/'
+    'api': 'https://extreme-ip-lookup.com/json/'
   },
   'rpc': {
     'host': '127.0.0.1',
-    'port': '52541',
-    'user': 'bulwarkrpc',
-    'pass': 'someverysafepassword',
-    'timeout': 8000, // 8 seconds
+    'port': '9568',
+    'user': 'test',
+    'pass': 'test',
+    'timeout': 10000, // 10 seconds
   }
 };
 
