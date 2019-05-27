@@ -51,7 +51,7 @@ export default class CardStatus extends Component {
         <Card className="card--graph" title="OBSR Market" subTitle={displayGrowth}>
           <div className="card__row">
             <span className="card__label">
-              $ market
+              USD market
           </span>
             <span className="card__result">
               <CountUp

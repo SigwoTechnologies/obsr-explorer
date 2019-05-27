@@ -11,6 +11,7 @@ import CardMarket from '../component/Card/CardMarket';
 import CardMasternodeSummary from '../component/Card/CardMasternodeSummary';
 import CardNetworkSummary from '../component/Card/CardNetworkSummary';
 import CardPoS from '../component/Card/CardPoS';
+import CardTxPerDay from '../component/Card/CardTxPerDay';
 import CardStatus from '../component/Card/CardStatus';
 import WatchList from '../component/WatchList';
 
@@ -33,7 +34,7 @@ class CoinSummary extends Component {
       ? this.props.txs[0].blockHeight
       : coin.blocks;
 
-    if (this.props.seraches) {
+    if (this.props.searches) {
       const watchlist = height >= 182700
       ? this.props.searches
       : this.props.searches.slice(0, 7);
@@ -62,6 +63,9 @@ class CoinSummary extends Component {
               usd={ coin.usd }
               xAxis={ this.props.coins.map(c => c.createdAt) }
               yAxis={ this.props.coins.map(c => c.usd ? c.usd : 0.0) } />
+            <CardTxPerDay
+              txDay={ coin.txDay }
+            />  
           </div>
         </div>
         <div className="row">
