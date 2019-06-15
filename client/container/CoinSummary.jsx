@@ -12,7 +12,7 @@ import Icon from '../component/Icon';
 import CardMarket from '../component/Card/CardMarket';
 import CardMasternodeSummary from '../component/Card/CardMasternodeSummary';
 import CardNetworkSummary from '../component/Card/CardNetworkSummary';
-import CardPoS from '../component/Card/CardPoS';
+// import CardPoS from '../component/Card/CardPoS';
 import CardTxPerDay from '../component/Card/CardTxPerDay';
 import CardStatus from '../component/Card/CardStatus';
 import WatchList from '../component/WatchList';
@@ -83,11 +83,11 @@ class CoinSummary extends Component {
       <div>
         <div className="row">
           <div className="col-md-12 col-lg-6">
-            <CardPoS
+            {/* <CardPoS
               average={4}
               height={5}
               posHeight={6}
-            />
+            /> */}
             <CardStatus
               avgBlockTime={ coin.avgBlockTime?coin.avgBlockTime:0 }
               avgMNTime={ coin.avgMNTime?coin.avgMNTime:0 }

@@ -1,4 +1,3 @@
-
 require('babel-polyfill');
 const config = require('../config');
 const { exit, rpc } = require('../lib/cron');
@@ -17,7 +16,6 @@ async function syncCoin() {
   const date = moment().utc().startOf('minute').toDate();
   // Setup the coinmarketcap.com api url.
   const url = `${ config.coinMarketCap.api }${ config.coinMarketCap.ticker }`;
-  const btcUrl = `https://api.coinmarketcap.com/v1/ticker/${ config.coinMarketCap.ticker }/?convert=BTC`;
 
   const info = await rpc.call('getinfo');
   const masternodes = await rpc.call('getmasternodecount');
@@ -33,7 +31,7 @@ async function syncCoin() {
   // }
   let market ={
     market_cap_usd:0,
-    price_btc: btcUrl,
+    price_btc:0,
     available_supply:0,
     price_usd:0
   }
@@ -42,7 +40,7 @@ async function syncCoin() {
     cap: market.market_cap_usd,
     createdAt: date,
     blocks: info.blocks,
-    btc: btcUrl.btc_price,
+    btc: market.price_btc,
     diff: info.difficulty,
     mnsOff: masternodes.total - masternodes.stable,
     mnsOn: masternodes.stable,
@@ -52,6 +50,7 @@ async function syncCoin() {
     supply: utxo[0].total + info.zOBSRsupply.total,
     usd: market.price_usd
   });
+
   await coin.save();
 }
 
