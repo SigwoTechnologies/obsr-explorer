@@ -15,13 +15,13 @@ const UTXO = require('../model/utxo');
  * Clear database.
  */
 async function clearDatabase() {
-  await Block.remove({});
-  await Coin.remove({});
-  await Masternode.remove({});
-  await Peer.remove({});
-  await Rich.remove({});
-  await TX.remove({});
-  await UTXO.remove({});
+  await Block.deleteMany({});
+  await Coin.deleteMany({});
+  await Masternode.deleteMany({});
+  await Peer.deleteMany({});
+  await Rich.deleteMany({});
+  await TX.deleteMany({});
+  await UTXO.deleteMany({});
 }
 
 /**
