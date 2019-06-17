@@ -39,7 +39,7 @@ class Masternode extends Component {
       mns: [] ,
       pages: 0,
       page: 1,
-      size: 10
+      size: 50
     };
   };
 
