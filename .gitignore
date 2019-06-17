@@ -70,3 +70,6 @@ config.js
 /public/*.gz
 /public/*.html
 /public/*.map
+/public/bundle.js.map
+/public/fetch.worker.js.map
+

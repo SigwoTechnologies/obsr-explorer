@@ -49,17 +49,17 @@ class Footer extends Component {
         </div>
         <div className="footer__block">
           <div className="menu-desktop__social ml-auto">
-            <a href="https://t.me/observer_official" target="_blank">
-              <Icon name="telegram" className="fab footer__social-media-icon" />
-            </a>
             <a href="https://github.com/observernet" target="_blank">
               <Icon name="github" className="fab footer__social-media-icon" />
             </a>
+            <a href="https://t.me/observer_official" target="_blank">
+              <Icon name="telegram" className="fab footer__social-media-icon" />
+            </a>
+            <a href="https://open.kakao.com/o/gPsdW8T" target="_blank">
+              <Icon name="kakao" className="fab footer__social-media-icon" />
+            </a>
             <a href="https://twitter.com/observerfounda1" target="_blank">
               <Icon name="twitter" className="fab footer__social-media-icon" />
-            </a>
-            <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
-              <Icon name="facebook" className="fab footer__social-media-icon" />
             </a>
           </div>
         </div>
