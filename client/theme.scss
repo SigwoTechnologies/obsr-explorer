@@ -8,7 +8,7 @@ $sblue: rgba(41, 77, 234, 1);
 $sgray: rgba(79, 147 ,193, 1);
 $gray: #adadad;
 $gray-secondary: #676767;
-$gray-dark: #354052;
+$gray-dark: #5e626b;
 $gray-light: #e8e8e8;
 $green: #61d75e;
 $red: #ed1c24;
@@ -112,6 +112,10 @@ html, body {
 	width: 100vw;
 }
 
+.container {
+  max-width: 60rem;
+}
+
 a, a:visited {
 	color: $gray-dark;
 	text-decoration: none;
@@ -204,10 +208,6 @@ a {
 	// overflow-y: auto;
   margin-top: 8px;
 
-	@include media-breakpoint-down(sm) {
-		margin-top: $menu-mobile-height;
-	}
-
 	/* Static Footer
 	@include media-breakpoint-up(md) {
 		margin-bottom: 159px;
@@ -253,5 +253,39 @@ a {
 		font-size: 3em;
 	}
 
+}
+
+.page-title {
+  text-transform: capitalize;
+  height: 100%;
+
+  input {
+    margin: 0;
+  }
+
+  &__wrapper {
+    //padding: 1em 0;
+    display: flex;
+    align-content: center;
+    align-items: center;
+  }
+
+  &__col {
+    display: inline-block;
+  }
+
+  .mr-auto {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+  }
+
+  .ml-auto {
+    padding-bottom: 24px;
+    color: white;
+    line-height: 1;
+    width: 95%;
+  }
 }
 
