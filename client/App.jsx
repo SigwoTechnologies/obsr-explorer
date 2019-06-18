@@ -59,7 +59,7 @@ class App extends Component {
     this.state = {
       init: true,
       limit: 10,
-      searches: []
+      searches: [],
     };
     this.timer = { coins: null, txs: null };
   };
@@ -93,6 +93,10 @@ class App extends Component {
     }
     this.timer = { coins: null, txs: null };
   };
+
+  componentDidUpdate() {
+    this.getPageName();
+  }
 
   getCoins = () => {
     if (this.timer.coins) {
@@ -149,6 +153,18 @@ class App extends Component {
     }
   };
 
+  getPageName = () => {
+    console.log('getPageName');
+    console.log(this.state);
+    const pageName = location.replace('#/', '')
+    return (
+      <div>
+        <p>test</p>
+        {location.hash}
+      </div>
+    )
+  };
+
   
   render() {
     if (this.state.init) {
@@ -165,14 +181,16 @@ class App extends Component {
             <div className="content__wrapper">
               {/* <Notification /> */}
               <div className="row container-fluid searchContainer m-0">
-                <div className="container">
-                  <div className="col-6"></div>
+                {/* <div className="container">
+                  <div className="col-6">
+                    {this.getPageName()}
+                  </div>
                   <div className="col-6 ml-auto">
                     <SearchBar
                       className="d-none d-md-block mb-3"
                       onSearch={ this.handleSearch } />
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="content__inner-wrapper container mt-4">
                 <Switch>
