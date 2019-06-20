@@ -79,6 +79,7 @@ $theme-light-blue:					#23e2ec;
 @import "./sass/error";
 @import "./sass/form";
 @import "./sass/hr";
+@import "./sass/break";
 @import "./sass/select";
 @import "./sass/search";
 @import "./sass/table";
@@ -101,6 +102,7 @@ $theme-light-blue:					#23e2ec;
 
 /* Reset */
 html, body {
+  //font-family: 'Noto Sans', sans-serif;
 	text-rendering: auto;
 	text-shadow: none;
 	-webkit-font-smoothing: antialiased;
@@ -256,6 +258,7 @@ a {
 }
 
 .page-title {
+  font-weight: bold;
   text-transform: capitalize;
   height: 100%;
 
@@ -288,4 +291,3 @@ a {
     width: 95%;
   }
 }
-

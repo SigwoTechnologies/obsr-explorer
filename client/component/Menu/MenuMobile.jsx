@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import Icon from '../Icon';
 import SearchBar from '../SearchBar';
+import getPageName from './getPageName';
 
 export default class MenuMobile extends Component {
   static propTypes = {
@@ -40,32 +41,13 @@ export default class MenuMobile extends Component {
 
   handleToggle = () => this.setState({ isOpen: !this.state.isOpen });
 
-  // render() {
-  //   return (
-  //     <div className={ `menu-mobile ${ this.state.isOpen ? 'menu-mobile--open' : 'menu-mobile--close' }` }>
-  //       <div className="menu-mobile__search-wrapper">
-  //         <h1>navbar</h1>
-  //         <a onClick={ this.handleToggle } >
-  //           <Icon name="bars" className="menu-mobile__toggle" onClick={ this.handleToggle } />
-  //         </a>
-  //       </div>
-  //       <div className="menu-mobile__item-wrapper">
-  //         <div className="menu-mobile__search-wrapper">
-  //           <SearchBar
-  //             className="search--mobile"
-  //             onSearch={ this.props.onSearch }
-  //             placeholder="Search Blockchain" />
-  //         </div>
-  //         { this.getLinks() }
-  //       </div>
-  //     </div>
-  //   )
-  // }
-
   render() {
     return (
       <div className={ `menu-mobile ${ this.state.isOpen ? 'menu-mobile--open' : 'menu-mobile--close' }` }>
-        <div className="menu-mobile__heading">Page Name</div>
+        <div className="menu-mobile__heading">
+          <div className="page-title">
+            {getPageName(this.props.location)}</div>
+          </div>      
         <div className="menu-mobile__hamburger">
           <a onClick={ this.handleToggle } >
             <Icon name="bars" className="menu-mobile__toggle" onClick={ this.handleToggle } />
@@ -83,6 +65,29 @@ export default class MenuMobile extends Component {
             <ul>
               { this.getLinks() }
             </ul>
+            <div className="menu-mobile__footer">
+              <div>
+                <img src="/img/obsrlogo.png" className="menu-mobile__logo" />
+              </div>
+              <div className="menu-mobile__footer--social">
+                <a href="https://github.com/observernet" target="_blank">
+                  <Icon name="github" className="fab footer__social-media-icon" />
+                </a>
+                <a href="https://t.me/observer_official" target="_blank">
+                  <Icon name="telegram" className="fab footer__social-media-icon" />
+                </a>
+                <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
+                  <Icon name="facebook" className="fab footer__social-media-icon" />
+                </a>
+                <a href="https://twitter.com/observerfounda1" target="_blank">
+                  <Icon name="twitter" className="fab footer__social-media-icon" />
+                </a>
+              </div>
+              <div>
+                <a className="obsr-link--mobile" href="https://obsr.org">obsr.org</a>
+              </div>
+              <div className="menu-mobile__footer--copyright">&copy; Copyright 2018-2019 Observer Foundation. All Rights Reserved</div>
+            </div>
           </div>
           {/* <div className="menu-mobile__search-wrapper">
             <SearchBar

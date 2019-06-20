@@ -94,10 +94,6 @@ class App extends Component {
     this.timer = { coins: null, txs: null };
   };
 
-  componentDidUpdate() {
-    this.getPageName();
-  }
-
   getCoins = () => {
     if (this.timer.coins) {
       clearTimeout(this.timer.coins);
@@ -129,7 +125,7 @@ class App extends Component {
   };
 
   handleSearch = (term) => {
-    console.log(term)
+    // console.log(term)
     // If term doesn't match then ignore.
     if (!isTX(term) && !isBlock(term) && !isAddress(term)) {
       return;
@@ -152,19 +148,6 @@ class App extends Component {
         });
     }
   };
-
-  getPageName = () => {
-    console.log('getPageName');
-    console.log(this.state);
-    const pageName = location.replace('#/', '')
-    return (
-      <div>
-        <p>test</p>
-        {location.hash}
-      </div>
-    )
-  };
-
   
   render() {
     if (this.state.init) {

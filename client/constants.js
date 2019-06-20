@@ -8,10 +8,10 @@ export const WATCH_REMOVE = 'WATCH_REMOVE';
 
 export const API_BASE = location.origin;
 export const PAGINATION_PAGE_SIZE = [
-  { label: '10', value: 10 },
-  { label: '25', value: 25 },
-  { label: '50', value: 50 },
-  { label: '100', value: 100 }
+  { label: '10 page', value: 10 },
+  { label: '20 page', value: 20 },
+  { label: '30 page', value: 30 },
+  { label: '50 page', value: 50 },
 ];
 
 export default {
@@ -22,6 +22,5 @@ export default {
   TXS,
   WATCH_ADD,
   WATCH_REMOVE,
-
-  API_BASE
+  API_BASE,
 };

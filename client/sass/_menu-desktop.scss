@@ -79,8 +79,8 @@
 	// }
 
 	a:hover {
-		color: $gray-light;
-		// transition: all 1s cubic-bezier(0, 1, .5, 1);
+		color: black;
+		transition: 4s;
   }
 
 	&__content-wrapper {
@@ -98,13 +98,14 @@
 		align-items: center;
 		justify-content: center;
     min-height: 3.5em;
+    padding-left: 1.5em;
     // float: left;
   }
   
   &__nav {
     display: flex;
     justify-content: flex-start;
-    padding-left: 66px;
+    padding-left: 40px;
     // margin-right: auto;
   }
 
@@ -151,7 +152,11 @@
 
 	&__item-label {
 		white-space: nowrap;
-	}
+  }
+  
+  &__footer {
+    color: red;
+  }
 
 	// &__item-indicator {
 	// 	display: none;
@@ -232,6 +237,6 @@
 }
 
 .obsr-link {
-  padding-left: 16px;
-  padding-right: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
 }

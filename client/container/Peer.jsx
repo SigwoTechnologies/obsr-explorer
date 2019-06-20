@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import HorizontalRule from '../component/HorizontalRule';
 import Table from '../component/Table';
 
 class Peer extends Component {
@@ -20,7 +19,6 @@ class Peer extends Component {
         { key: 'ip', title: 'Address' },
         { key: 'ver', title: 'Protocol' },
         { key: 'subver', title: 'Sub-version' },
-        { key: 'country', title: 'Country' },
       ],
       loading: true,
       peers: []
@@ -48,11 +46,15 @@ class Peer extends Component {
     }
     return (
       <div>
-        <HorizontalRule title="Connections" />
         <Table
           cols={ this.state.cols }
           data={ this.state.peers.map(peer => ({
             ...peer,
+            subver: (
+              <div>
+                {peer.subver.replace('/', '')}
+              </div>
+            ),
             ip: (
               <div>
                 <img

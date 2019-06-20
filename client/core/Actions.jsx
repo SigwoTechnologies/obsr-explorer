@@ -93,17 +93,6 @@ export const getMNs = (query) => {
 export const getPeers = () => {
   return new promise((resolve, reject) => {
     return getFromWorker('peers', resolve, reject);
-    //   'peers',
-    //   (peers) => {
-    //     resolve(peers.map((peer) => {
-    //       const parts = peer.ip.split('.');
-    //       parts[3] = 'XXX';
-    //       peer.ip = parts.join('.');
-    //       return peer;
-    //     }));
-    //   },
-    //   reject
-    // );
   });
 };
 

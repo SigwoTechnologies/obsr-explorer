@@ -16,7 +16,7 @@
 }
 
 .table {
-	width: 99.8%;
+  width: 99.8%;
 
 	tr {
 		transition: all 1s cubic-bezier(0, 1, .5, 1);
@@ -58,7 +58,7 @@
 
 	th {
 		color: $black;
-		font-size: 16px;
+		font-size: 18px;
 		min-width: 100px;
 		padding: 32px 5px;
 		text-transform: uppercase;
@@ -71,16 +71,118 @@
 	th:last-child {
 		padding-right: 32px;
 		text-align: right;
-	}
+  }
+
+  .span-blockHeight::before {
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 900;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    content: "\f1b2";
+    color: $theme-dark-blue;
+    padding-right: 4px;
+  }
+
+  .span-recipients::before {
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 900;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    content: "\f362";
+    color: $theme-dark-blue;
+    padding-right: 4px;
+    display: inline-block;
+    -webkit-transform: rotate(130deg);
+    -moz-transform: rotate(130deg);
+    -o-transform: rotate(130deg);
+    -ms-transform: rotate(130deg);
+    transform: rotate(130deg);
+  }
+
+  .span-txId::before {
+    content: "TXID";
+    padding-right: 4px;
+    color: $gray;
+  }
+
+  .span-address::before {
+    content: "Address";
+    padding-right: 4px;
+    color: $gray;
+  }
+  
+  .span-collateral::before {
+    content: "Collateral TX";
+    padding-right: 4px;
+    color: $gray;
+  }
+
+  .span-index::before {
+    content: "Index";
+    padding-right: 4px;
+    color: $gray;
+  }
+
+  .span-ver::before {
+    content: "Ver.";
+    padding-right: 4px;
+    color: $gray;
+  }
+
+  .span-txOutIdx::before {
+    content: "Index";
+    padding-right: 4px;
+    color: $gray;
+  }
+
+  .span-addr::before {
+    content: "Address";
+    padding-right: 4px;
+    color: $gray;
+  }
+
+  .span-txHash::before {
+    content: "Collateral TX";
+    padding-right: 4px;
+    color: $gray;
+  }
+  
+  .span-vout {
+    .badge-info {
+      text-align: right;
+      background: transparent;
+      color: #0b89f5 !important;
+      max-width: 200px;
+      height: 24px;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      padding: 0;
+    }
+    text-align: right;
+    color: #0b89f5 !important;
+    font-size: 18px;
+    font-weight: 600;
+  }
 
 	td {
 		min-width: 100px;
 		max-width: 450px;
 		overflow: hidden;
-		padding: 8px;
-		padding-right: 5px;
+    padding: 10px 0 8px 0;
 		text-align: left;
-		text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    height: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
   }
 
 	td:first-child {
@@ -93,7 +195,11 @@
 		text-align: right;
 		min-width: 0;
 		border-radius: 5px;
-	}
+  }
+  
+  .td-txId {
+    max-width: 350px;
+  }
 
 	tbody {
 		font-size: .9em;
@@ -105,5 +211,99 @@
 				border-bottom: 1px solid $gray-light;
 			}
 		}
+  }
+  
+  @include media-breakpoint-down(sm) {
+    tr {
+      display: inline-flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    td {
+      min-width: 100px;
+      max-width: 340px;
+      overflow: hidden;
+      padding: 8px;
+      height: 30px;
+      // padding-right: 5px;
+      text-align: left;
+      text-overflow: ellipsis;
+    }
+
+    td:first-child {
+      padding-left: 14px;
+    }
+
+    td:last-child {
+      padding-right: 14px;
+    }
+
+    .td-blockHeight {
+      position: relative;
+      top: -28px;
+      padding-left: 14px;
+    }
+
+    .td-txId {
+      position: relative;
+      top: -16px;
+    }
+
+    .td-recipients {
+      display: none;
+    }
+
+    .td-age {
+      display: none;
+    }
+
+    .td-createdAt {
+      text-align: right;
+      padding-bottom: 4px;
+    }
+
+    .td-vout {
+      margin-left: auto;
+      text-align: right;
+      width: 80%;
+      order: -1;
+      position: relative;
+      top: 4px;
+      font-weight: 900;
+
+      span {
+        color: $theme-dark-blue;
+      }
+    }
 	}
+}
+
+.pagination-wrapper {
+  display: flex;
+  width: 100%;
+
+  &__content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-link {
+    position: relative;
+    display: block;
+    padding: 8px 12px;
+    margin-left: -1px;
+    line-height: 1;
+    color: #adadad;
+    background: transparent;
+    border: 0;
+  }
+
+  .active {
+    .page-link {
+      text-decoration: underline;
+    }
+  }
 }

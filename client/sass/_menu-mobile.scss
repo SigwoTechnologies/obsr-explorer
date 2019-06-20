@@ -41,7 +41,7 @@
 
     ul {
       list-style: none;
-      padding: 1em;
+      padding: 2em 1.5em;
       margin: 0;
 
       li {
@@ -56,7 +56,7 @@
     background-image: linear-gradient(90deg, #2F46D7, #19d2ee);
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     display: flex;
-    padding: 2em 0.25em 0.5em 0.25em;
+    padding: 2em 0.25em 0.5em 0.5em;
     font-size: 22px;
     color: white;
     position: relative;
@@ -96,6 +96,29 @@
     }
   }
 
+  &__footer {
+    padding: 2em 1.5em;
+    position: fixed;
+    bottom: 0;
+
+    img {
+      position: relative;
+      left: -14px;
+    }
+
+    &--social {
+      .footer__social-media-icon {
+        height: 45px;
+      }
+    }
+
+    &--copyright {
+      padding-top: 20px;
+      font-size: 14px;
+      color: gray;
+    }
+  }
+
   .sidenav-close {
     display: inline-block;
     margin-left: auto;
@@ -117,4 +140,9 @@
   .menu-mobile__menu {
     width: 0;
   }
+}
+
+.obsr-link--mobile {
+  padding-top: 8px;
+  font-size: 18px;
 }
