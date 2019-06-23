@@ -56,7 +56,7 @@ class Footer extends Component {
               <Icon name="telegram" className="fab footer__social-media-icon" />
             </a>
             <a href="https://open.kakao.com/o/gPsdW8T" target="_blank">
-              <Icon name="kakao" className="fab footer__social-media-icon" />
+              <Icon name="comment-dots" className="fas footer__social-media-icon" />
             </a>
             <a href="https://twitter.com/observerfounda1" target="_blank">
               <Icon name="twitter" className="fab footer__social-media-icon" />
