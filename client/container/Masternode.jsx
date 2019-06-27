@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import sortBy from 'lodash/sortBy';
 
-import HorizontalRule from '../component/HorizontalRule';
+import HorizontalBreak from '../component/HorizontalBreak';
 import Pagination from '../component/Pagination';
 import Table from '../component/Table';
 import Select from '../component/Select';
@@ -39,7 +39,7 @@ class Masternode extends Component {
       mns: [] ,
       pages: 0,
       page: 1,
-      size: 50
+      size: 10
     };
   };
 
@@ -101,34 +101,38 @@ class Masternode extends Component {
     
     return (
       <div>
-        <HorizontalRule
-          select={ select }
-          title="Masternodes" />
+        <Pagination
+          current={ this.state.page }
+          className="text-center"
+          onPage={ this.handlePage }
+          total={ this.state.pages } />
+        <HorizontalBreak
+          select={ select } />
         <Table
           cols={ this.state.cols }
           data={ sortBy(this.state.mns.map((mn) => {
             const lastPaidAt = moment(mn.lastPaidAt).utc();
             const isEpoch = lastPaidAt.unix() === 0;
-            const add = <span className="text-secondary">Address </span>
-            const cTx = <span className="text-secondary">Collateral TX </span>
-            const txIndex = <span className="text-secondary">Index </span>
-            const ver = <span className="text-secondary">Ver. </span>
+            // const add = <span className="span-address" />
+            // const cTx = <span className="span-collateral" />
+            // const txIndex = <span className="span-index" />
+            // const version = <span className="span-ver" />
             return {
               ...mn,
               status: (mn.status == 'ENABLED' ? <div className="green-dot" /> : <div className="red-dot" />),
-              txOutIdx: ( <div>{txIndex}{mn.txOutIdx} </div> ),
-              ver: ( <div>{ver}{mn.ver} </div> ),
+              txOutIdx: ( <div>{/* {txIndex} */}{mn.txOutIdx} </div> ),
+              ver: ( <div>{/* {version} */}{mn.ver} </div> ),
               active: moment().subtract(mn.active, 'seconds').utc().fromNow(),
               addr: (
                 <Link to={ `/address/${ mn.addr }` }>
-                  { add }
+                  {/* { add } */}
                   { `${ mn.addr.substr(0, 20) }...` }
                 </Link>
               ),
               lastPaidAt: isEpoch ? 'N/A' : date24Format(mn.lastPaidAt),
               txHash: (
                 <Link to={ `/tx/${ mn.txHash }` }>
-                  { cTx }
+                  {/* { cTx } */}
                   { `${ mn.txHash.substr(0, 20) }...` }
                 </Link>
               )
@@ -136,10 +140,11 @@ class Masternode extends Component {
           }), ['status']) } />
         <Pagination
           current={ this.state.page }
-          className="float-right"
+          className="text-center"
           onPage={ this.handlePage }
           total={ this.state.pages } />
-        <div className="clearfix" />
+        <HorizontalBreak
+          select={ select } />
       </div>
     );
   };

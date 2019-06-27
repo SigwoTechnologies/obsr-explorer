@@ -56,36 +56,6 @@ export default class MenuDesktop extends Component {
   handleToggle = () => this.setState({ isOpen: !this.state.isOpen });
 
   render() {
-
-    // const newNavbar = (
-    //   <Navbar color="light" light expand="md">
-    //     <NavbarBrand href="/">
-    //       <img src="/img/obsrlogo.png" className="menu-desktop__logo" />
-    //     </NavbarBrand>
-    //     <NavbarToggler onClick={this.toggle} />
-    //     <Collapse isOpen={this.state.isOpen} navbar>
-    //       <Nav className="mr-auto" navbar>
-    //         { this.getLinks() }
-    //       </Nav>
-    //       <Nav navbar className="ml-auto">
-    //         <a href="https://t.me/observer_official" target="_blank">
-    //           <Icon name="telegram" className="fab footer__social-media-icon" />
-    //         </a>
-    //         <a href="https://github.com/observernet" target="_blank">
-    //           <Icon name="github" className="fab footer__social-media-icon" />
-    //         </a>
-    //         <a href="https://twitter.com/observerfounda1" target="_blank">
-    //           <Icon name="twitter" className="fab footer__social-media-icon" />
-    //         </a>
-    //         <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
-    //           <Icon name="facebook" className="fab footer__social-media-icon" />
-    //         </a>
-    //         <span className="footer__signature">obsr.org</span>
-    //       </Nav>
-    //     </Collapse>
-    //   </Navbar>
-    // );
-
     return (
         <div className={ `menu-desktop ${ this.state.isOpen ? 'menu-desktop--open' : 'menu-desktop--close' }` }>
           <div className="menu-desktop__content-wrapper">
@@ -108,6 +78,7 @@ export default class MenuDesktop extends Component {
               <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
                 <Icon name="facebook" className="fab footer__social-media-icon" />
               </a>
+              <a className="obsr-link" href="https://obsr.org">obsr.org</a>
             </div>
           </div>
         </div>

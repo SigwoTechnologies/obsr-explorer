@@ -1,0 +1,22 @@
+.break {
+	display: flex;
+	align-items: right;
+  position: relative;
+  top: -54px;
+
+	&__title {
+		font-size: .9em;
+		font-weight: bold;
+		margin-right: 1em;
+		text-transform: uppercase;
+	}
+
+	&__wrapper {
+		flex: 1;
+	}
+
+	&__select {
+		margin-left: 1em;
+  }
+
+}

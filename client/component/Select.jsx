@@ -15,7 +15,7 @@ class App extends Component {
     };
 
     return (
-      <div className="select">
+      <div className="select" style={{ minWidth: '96px' }}>
         <Select
           { ...this.props }
           settings={ settings } />

@@ -8,7 +8,7 @@ $sblue: rgba(41, 77, 234, 1);
 $sgray: rgba(79, 147 ,193, 1);
 $gray: #adadad;
 $gray-secondary: #676767;
-$gray-dark: #354052;
+$gray-dark: #5e626b;
 $gray-light: #e8e8e8;
 $green: #61d75e;
 $red: #ed1c24;
@@ -79,6 +79,7 @@ $theme-light-blue:					#23e2ec;
 @import "./sass/error";
 @import "./sass/form";
 @import "./sass/hr";
+@import "./sass/break";
 @import "./sass/select";
 @import "./sass/search";
 @import "./sass/table";
@@ -101,6 +102,7 @@ $theme-light-blue:					#23e2ec;
 
 /* Reset */
 html, body {
+  //font-family: 'Noto Sans', sans-serif;
 	text-rendering: auto;
 	text-shadow: none;
 	-webkit-font-smoothing: antialiased;
@@ -110,6 +112,10 @@ html, body {
 	padding: 0;
 	overflow-x: hidden;
 	width: 100vw;
+}
+
+.container {
+  max-width: 60rem;
 }
 
 a, a:visited {
@@ -204,10 +210,6 @@ a {
 	// overflow-y: auto;
   margin-top: 8px;
 
-	@include media-breakpoint-down(sm) {
-		margin-top: $menu-mobile-height;
-	}
-
 	/* Static Footer
 	@include media-breakpoint-up(md) {
 		margin-bottom: 159px;
@@ -255,3 +257,37 @@ a {
 
 }
 
+.page-title {
+  font-weight: bold;
+  text-transform: capitalize;
+  height: 100%;
+
+  input {
+    margin: 0;
+  }
+
+  &__wrapper {
+    //padding: 1em 0;
+    display: flex;
+    align-content: center;
+    align-items: center;
+  }
+
+  &__col {
+    display: inline-block;
+  }
+
+  .mr-auto {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+  }
+
+  .ml-auto {
+    padding-bottom: 24px;
+    color: white;
+    line-height: 1;
+    width: 95%;
+  }
+}

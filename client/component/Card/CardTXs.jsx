@@ -50,7 +50,7 @@ export default class CardTXs extends Component {
             createdAt: date24Format(tx.createdAt),
             txId: (
               <Link to={ `/tx/${ tx.txId }` }>
-                TXID { tx.txId }
+                { tx.txId }
               </Link>
             ),
             vout: (

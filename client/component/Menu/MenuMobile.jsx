@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import Icon from '../Icon';
 import SearchBar from '../SearchBar';
+import getPageName from './getPageName';
 
 export default class MenuMobile extends Component {
   static propTypes = {
@@ -29,14 +30,11 @@ export default class MenuMobile extends Component {
 
     return props.links.map((i, idx) => {
       return (
-        <Link key={ idx } className="menu-mobile__item" to={ i.href } onClick={ this.handleToggle } >
-          <img
-            alt={ i.label }
-            className="menu-mobile__icon"
-            src={ i.icon }
-            title={ this.state.isOpen ? null : i.label } />
-          <span className="menu-mobile__item-label" >{ i.label }</span>
-        </Link>
+        <li key={ idx }>
+          <Link to={ i.href } onClick={ this.handleToggle }>
+            { i.label }
+          </Link>
+        </li>
       )
     })
   };
@@ -46,17 +44,58 @@ export default class MenuMobile extends Component {
   render() {
     return (
       <div className={ `menu-mobile ${ this.state.isOpen ? 'menu-mobile--open' : 'menu-mobile--close' }` }>
-        <div className="menu-mobile__search-wrapper">
-          <SearchBar
-            className="search--mobile mr-3"
-            onSearch={ this.props.onSearch }
-            placeholder="Search Blockchain" />
+        <div className="menu-mobile__heading">
+          <div className="page-title">
+            {getPageName(this.props.location)}</div>
+          </div>      
+        <div className="menu-mobile__hamburger">
           <a onClick={ this.handleToggle } >
             <Icon name="bars" className="menu-mobile__toggle" onClick={ this.handleToggle } />
           </a>
         </div>
-        <div className="menu-mobile__item-wrapper" >
-          { this.getLinks() }
+        <div className="menu-mobile__menu">
+          <a className="sidenav-close" onClick={ this.handleToggle } >
+            <Icon name="times" className="menu-mobile__toggle" onClick={ this.handleToggle } />
+          </a>
+          <div className="menu-mobile__menu--content">
+            <div className="menu-mobile__search">
+              <i className="fa fa-search"></i>
+              <input type="text" placeholder="Search blockchain" />
+            </div>
+            <ul>
+              { this.getLinks() }
+            </ul>
+            <div className="menu-mobile__footer">
+              <div>
+                <img src="/img/obsrlogo.png" className="menu-mobile__logo" />
+              </div>
+              <div className="menu-mobile__footer--social">
+                <a href="https://github.com/observernet" target="_blank">
+                  <Icon name="github" className="fab footer__social-media-icon" />
+                </a>
+                <a href="https://t.me/observer_official" target="_blank">
+                  <Icon name="telegram" className="fab footer__social-media-icon" />
+                </a>
+                <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">
+                  <Icon name="facebook" className="fab footer__social-media-icon" />
+                </a>
+                <a href="https://twitter.com/observerfounda1" target="_blank">
+                  <Icon name="twitter" className="fab footer__social-media-icon" />
+                </a>
+              </div>
+              <div>
+                <a className="obsr-link--mobile" href="https://obsr.org">obsr.org</a>
+              </div>
+              <div className="menu-mobile__footer--copyright">&copy; Copyright 2018-2019 Observer Foundation. All Rights Reserved</div>
+            </div>
+          </div>
+          {/* <div className="menu-mobile__search-wrapper">
+            <SearchBar
+              className="search--mobile"
+              onSearch={ this.props.onSearch }
+              placeholder="Search Blockchain" />
+          </div>
+          { this.getLinks() } */}
         </div>
       </div>
     )

@@ -60,29 +60,33 @@ export default class Pagination extends Component {
     }
 
     return (
-      <ul className={ `pagination${ this.props.className ? ` ${ this.props.className }` : '' }` }>
-        <li className="page-item">
-          <a className="page-link" href="#" onClick={ (ev) => this.handlePage(ev, 1) }>
-            <Icon name="angle-double-left" />
-          </a>
-        </li>
-        <li className="page-item">
-          <a className="page-link" href="#" onClick={ this.handleNewer }>
-            <Icon name="angle-left" />
-          </a>
-        </li>
-        { pages }
-        <li className="page-item">
-          <a className="page-link" href="#" onClick={ this.handleOlder }>
-            <Icon name="angle-right" />
-          </a>
-        </li>
-        <li className="page-item">
-          <a className="page-link" href="#" onClick={ (ev) => this.handlePage(ev, this.props.total) }>
-            <Icon name="angle-double-right" />
-          </a>
-        </li>
-      </ul>
+      <div className="pagination-wrapper">
+        <div className="pagination-wrapper__content">
+          <ul className={ `pagination${ this.props.className ? ` ${ this.props.className }` : '' }` }>
+            <li className="page-item">
+              <a className="page-link" href="#" onClick={ (ev) => this.handlePage(ev, 1) }>
+                <Icon name="angle-double-left" />
+              </a>
+            </li>
+            <li className="page-item">
+              <a className="page-link" href="#" onClick={ this.handleNewer }>
+                <Icon name="angle-left" />
+              </a>
+            </li>
+            { pages }
+            <li className="page-item">
+              <a className="page-link" href="#" onClick={ this.handleOlder }>
+                <Icon name="angle-right" />
+              </a>
+            </li>
+            <li className="page-item">
+              <a className="page-link" href="#" onClick={ (ev) => this.handlePage(ev, this.props.total) }>
+                <Icon name="angle-double-right" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     );
   }
 };

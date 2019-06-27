@@ -23,7 +23,7 @@
 	font-weight: lighter;
   // height: 60px;
   margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
+  // padding: 0.5em 1em 0.5em 1em;
 
 	@include media-breakpoint-down(sm) {
 		display: none;
@@ -65,9 +65,9 @@
 		}
   }
 
-	a:active {
-		color: $theme-light-blue;
-  }
+	// a:active {
+	// 	color: $theme-light-blue;
+  // }
 
 	// &__item--is-active {
 	// 	span {
@@ -79,20 +79,18 @@
 	// }
 
 	a:hover {
-		color: $gray-light;
-		// transition: all 1s cubic-bezier(0, 1, .5, 1);
+		color: black;
+		transition: 4s;
   }
 
 	&__content-wrapper {
     display: flex;
-		// flex-flow: row nowrap;
-		// height: 75%;
-    // max-height: 30px;
-    // flex-flow: row nowrap;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    justify-content:flex-start;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
 	}
 
 	&__header {
@@ -100,12 +98,14 @@
 		align-items: center;
 		justify-content: center;
     min-height: 3.5em;
+    padding-left: 1.5em;
     // float: left;
   }
   
   &__nav {
     display: flex;
     justify-content: flex-start;
+    padding-left: 40px;
     // margin-right: auto;
   }
 
@@ -136,7 +136,7 @@
 		align-items: center;
 		color: $black;
 		line-height: 1;
-    margin-right: 10px;
+    margin-right: 40px;
     
     // padding: 0;
     font-family: $fontSmall;
@@ -152,7 +152,11 @@
 
 	&__item-label {
 		white-space: nowrap;
-	}
+  }
+  
+  &__footer {
+    color: red;
+  }
 
 	// &__item-indicator {
 	// 	display: none;
@@ -232,3 +236,7 @@
 	// }
 }
 
+.obsr-link {
+  padding-left: 15px;
+  padding-right: 15px;
+}

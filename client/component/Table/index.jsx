@@ -6,6 +6,7 @@ import React from 'react';
 import { Table } from 'reactstrap';
 
 import TableHeader from './TableHeader';
+import { forEach } from 'p-iteration';
 
 export default class TableWrapper extends Component {
   static defaultProps = {
@@ -33,8 +34,9 @@ export default class TableWrapper extends Component {
 
     const rows = data.map((row, idx) => {
       const cells = keys.map((col, i) => {
+        console.log(col)
         return (
-          <td key={ i }>{ row[col] }</td>
+          <td className={`td-${col}`} key={ i }><span className={`span-${col}`}>{ row[col] }</span></td>
         )
       });
 

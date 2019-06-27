@@ -59,7 +59,7 @@ class App extends Component {
     this.state = {
       init: true,
       limit: 10,
-      searches: []
+      searches: [],
     };
     this.timer = { coins: null, txs: null };
   };
@@ -125,7 +125,7 @@ class App extends Component {
   };
 
   handleSearch = (term) => {
-    console.log(term)
+    // console.log(term)
     // If term doesn't match then ignore.
     if (!isTX(term) && !isBlock(term) && !isAddress(term)) {
       return;
@@ -148,7 +148,6 @@ class App extends Component {
         });
     }
   };
-
   
   render() {
     if (this.state.init) {
@@ -165,14 +164,16 @@ class App extends Component {
             <div className="content__wrapper">
               {/* <Notification /> */}
               <div className="row container-fluid searchContainer m-0">
-                <div className="container">
-                  <div className="col-6"></div>
+                {/* <div className="container">
+                  <div className="col-6">
+                    {this.getPageName()}
+                  </div>
                   <div className="col-6 ml-auto">
                     <SearchBar
                       className="d-none d-md-block mb-3"
                       onSearch={ this.handleSearch } />
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="content__inner-wrapper container mt-4">
                 <Switch>
