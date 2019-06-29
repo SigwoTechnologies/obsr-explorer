@@ -1,5 +1,5 @@
 
-require('babel-polyfill');
+// require('babel-polyfill');
 require('../lib/cron');
 const config = require('../config');
 const { exit, rpc } = require('../lib/cron');

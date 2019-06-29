@@ -1,14 +1,16 @@
 {
-    "plugins": [
-        "transform-class-properties",
-        "transform-object-rest-spread"
+  "presets": [
+    ["@babel/preset-env",
+      {
+        // "useBuiltIns": "usage",
+        "corejs": 3,
+      }
     ],
-    "presets": [
-        ["env", {
-            "targets": {
-                "node": "current"
-            }
-        }],
-        "react"
-    ]
+    "@babel/preset-react",
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-runtime",
+  ]
 }

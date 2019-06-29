@@ -1,5 +1,7 @@
 
-import 'babel-polyfill';
+// import 'babel-polyfill';
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import './theme.scss';
 import { createStore } from 'redux';
 import Promise from 'bluebird';

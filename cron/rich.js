@@ -1,5 +1,5 @@
 
-require('babel-polyfill');
+// require('babel-polyfill');
 const { exit } = require('../lib/cron');
 const locker = require('../lib/locker');
 // Models.

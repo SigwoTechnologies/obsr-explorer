@@ -6,7 +6,7 @@ import React from 'react';
 import { Table } from 'reactstrap';
 
 import TableHeader from './TableHeader';
-import { forEach } from 'p-iteration';
+// import { forEach } from 'p-iteration';
 
 export default class TableWrapper extends Component {
   static defaultProps = {

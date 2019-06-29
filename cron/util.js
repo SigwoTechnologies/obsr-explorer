@@ -1,5 +1,5 @@
 
-require('babel-polyfill');
+// require('babel-polyfill');
 const { rpc } = require('../lib/cron');
 const TX = require('../model/tx');
 const UTXO = require('../model/utxo');
