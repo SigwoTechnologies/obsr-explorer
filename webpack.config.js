@@ -6,7 +6,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const envType = process.env.NODE_ENV;
-// console.log(`Compiling code in ${envType} mode.`);
+console.log(`Compiling code in ${envType} mode.`);
 
 const htmlPlugin = new HtmlWebpackPlugin({
   filename: 'index.html',
@@ -62,30 +62,30 @@ module.exports = {
         use: {
           loader: 'worker-loader',
           options: {
-            inline: true,
+            // inline: true,
             name: 'fetch.worker.js'
           }
         }
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                '@babel/preset-env',
-                '@babel/preset-react'
-              ],
-              plugins: [
-                "@babel/plugin-proposal-class-properties",
-                "@babel/plugin-proposal-object-rest-spread",
-                "@babel/plugin-transform-runtime",
-              ],
-            },
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+            ],
+            plugins: [
+              "@babel/plugin-proposal-class-properties",
+              "@babel/plugin-proposal-object-rest-spread",
+              ["@babel/plugin-transform-runtime", {
+                "regenerator": true,
+              }]
+            ],
           }
-        ]
+        }
       },
       {
         test: /\.html$/,
@@ -95,17 +95,6 @@ module.exports = {
             // options: { minimize: true },
           }
         ]
-      },
-      {
-        test: /\.(png|svg|jpe?g|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'img',
-            },
-          },
-        ],
       },
       {
         test: /\.s*css$/,
@@ -119,17 +108,20 @@ module.exports = {
   },
   plugins: [
     htmlPlugin,
-    // envPlugin,
+    envPlugin,
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
     new webpack.SourceMapDevToolPlugin(options),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      Promise: 'bluebird'
+    }),
     // new webpack.ProvidePlugin({
-    //   Promise: 'bluebird'
+    //   Promise: "imports-loader?this=>global!exports-loader?global.Promise!bluebird"
     // }),
-    // prodPlugins,
+    prodPlugins,
   ],
   output: {
     filename: 'bundle.js',
