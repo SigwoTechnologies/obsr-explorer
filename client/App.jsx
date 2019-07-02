@@ -31,7 +31,7 @@ import TX from './container/TX';
 import Icon from './component/Icon';
 import Loading from './component/Loading';
 import Menu from './component/Menu';
-import FooterMenu from './component/Menu';
+import FooterMenu from './component/Menu/FooterMenu';
 import Notification from './component/Notification';
 import SearchBar from './component/SearchBar';
 
