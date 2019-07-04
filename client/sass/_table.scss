@@ -1,25 +1,41 @@
 
 .table-wrapper {
-	@include media-breakpoint-down(lg) {
-		overflow-x: auto;
-	}
+	// @include media-breakpoint-down(lg) {
+	// 	overflow-x: auto;
+  // }
+  width: 100%;
 
 	&__shadow-margin {
 		display: initial;
 
 		@include media-breakpoint-down(lg) {
-			display: inline-block;
+			// display: inline-block;
 			margin-left: 1px;
 			margin-right: 20px;
 		}
 	}
 }
 
+.span-txId {
+  min-width: 100px;
+  max-width: 320px;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
 .table {
   width: 99.8%;
 
 	tr {
-		transition: all 1s cubic-bezier(0, 1, .5, 1);
+    transition: all 1s cubic-bezier(0, 1, .5, 1);
+    width: 100%; 
 	}
 
 	tr.table-spacer {
@@ -59,17 +75,18 @@
 	th {
 		color: $black;
 		font-size: 18px;
-		min-width: 100px;
+		// min-width: 100px;
 		padding: 32px 5px;
 		text-transform: uppercase;
 	}
 
 	th:first-child {
-		padding-left: 32px;
+    padding-left: 14px;
+    padding-right: 14px;
 	}
 
 	th:last-child {
-		padding-right: 32px;
+		padding-right: 14px;
 		text-align: right;
   }
 
@@ -156,7 +173,7 @@
       text-align: right;
       background: transparent;
       color: #0b89f5 !important;
-      max-width: 200px;
+      max-width: 320px;
       height: 24px;
       font-size: 18px;
       font-weight: 600;
@@ -170,8 +187,8 @@
   }
 
 	td {
-		min-width: 100px;
-		max-width: 450px;
+		// min-width: 100px;
+		max-width: 320px;
 		overflow: hidden;
     padding: 10px 0 8px 0;
 		text-align: left;
@@ -186,19 +203,15 @@
   }
 
 	td:first-child {
-		padding-left: 32px;
+		padding-left: 14px;
 		border-radius: 5px;
 	}
 
 	td:last-child {
-		padding-right: 32px;
+		padding-right: 14px;
 		text-align: right;
-		min-width: 0;
+		// min-width: 0;
 		border-radius: 5px;
-  }
-  
-  .td-txId {
-    max-width: 350px;
   }
 
 	tbody {
@@ -213,7 +226,9 @@
 		}
   }
   
-  @include media-breakpoint-down(sm) {
+  // @include media-breakpoint-down(sm) {
+  @media only screen and (max-width: 760px), (min-device-width: 768px) 
+  and (max-device-width: 1024px)  {
     tr {
       display: inline-flex;
       flex-direction: column;
@@ -223,8 +238,8 @@
     }
 
     td {
-      min-width: 100px;
-      max-width: 340px;
+      // min-width: 100px;
+      max-width: 400px;
       overflow: hidden;
       padding: 8px;
       height: 30px;
@@ -250,6 +265,8 @@
     .td-txId {
       position: relative;
       top: -16px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .td-recipients {
@@ -262,7 +279,9 @@
 
     .td-createdAt {
       text-align: right;
-      padding-bottom: 4px;
+      padding-bottom: 28px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .td-vout {
@@ -304,6 +323,7 @@
   .active {
     .page-link {
       text-decoration: underline;
+      z-index: 0;
     }
   }
 }

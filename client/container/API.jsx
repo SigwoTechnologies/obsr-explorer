@@ -4,7 +4,6 @@ import React from 'react';
 
 import APIdata from '../component/API/APIdata';
 import APIsection from '../component/API/APIsection';
-import HorizontalRule from '../component/HorizontalRule';
 
 export default class API extends Component {
 

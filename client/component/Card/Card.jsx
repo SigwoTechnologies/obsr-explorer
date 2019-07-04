@@ -16,7 +16,7 @@ export default class Card extends Component {
       <div
         className={ `card ${ props.className ? props.className : '' }` }
         style={ !!props.style ? props.style : {} }>
-        <div className="card__title--noline" style={{ borderBottom: '2px solid lightgray', borderWidth: '4px' }}>
+        <div className="card__title--noline" style={{ borderBottom: '2px solid lightgray', borderWidth: '2px' }}>
           <div className="card__title--left" className={`card__title${props.subTitle ? '--left' : null}`}>
             { props.title }
           </div>

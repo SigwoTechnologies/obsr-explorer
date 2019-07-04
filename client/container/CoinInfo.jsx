@@ -8,6 +8,7 @@ import CardEarnings from '../component/Card/CardEarnings';
 import CardExchanges from '../component/Card/CardExchanges';
 import CardLinks from '../component/Card/CardLinks';
 import CardROI from '../component/Card/CardROI';
+import CardStatus from '../component/Card/CardStatus';
 import HorizontalRule from '../component/HorizontalRule';
 
 class CoinInfo extends Component {

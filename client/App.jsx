@@ -34,16 +34,7 @@ import Menu from './component/Menu';
 import FooterMenu from './component/Menu/FooterMenu';
 import Notification from './component/Notification';
 import SearchBar from './component/SearchBar';
-
-const MenuData = [
-  {label: 'Overview', icon: '/img/home.svg', href: '/'},
-  {label: 'Movement', icon: '/img/movement.svg', href: '/movement'},
-  {label: 'Masternode', icon: '/img/masternodes.svg', href: '/masternode'},
-  {label: 'Connections', icon: '/img/connections.svg', href: '/peer'},
-  // {label: 'Statistics', icon: '/img/statistics.svg', href: '/statistics'},
-  {label: 'Coin Info', icon: '/img/coininfo.svg', href: '/coin'},
-  {label: 'API', icon: '/img/api.svg', href: '/api'}
-]
+import MenuData from './component/Menu/menuData';
 
 class App extends Component {
   static propTypes = {
@@ -193,7 +184,7 @@ class App extends Component {
               </div>
             </div>
             {/* <Footer /> */}
-            <FooterMenu onSearch={ this.handleSearch } />
+            <FooterMenu links={MenuData} onSearch={ this.handleSearch } />
             <div className="container" style={{ fontSize: '14px', color: 'gray', paddingBottom: '40px', textAlign: 'left' }}>
               <p>ⓒ 2019 Observer Foundation- All Rights Reserved <a href="https://obsr.org">obsr.org</a></p>
             </div>
