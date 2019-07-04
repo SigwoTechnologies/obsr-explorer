@@ -1,5 +1,5 @@
 
-require('babel-polyfill');
+// require('babel-polyfill');
 const cluster = require('cluster');
 
 // Master

@@ -1,5 +1,5 @@
 
-require('babel-polyfill');
+// require('babel-polyfill');
 const blockchain = require('../lib/blockchain');
 const { exit, rpc } = require('../lib/cron');
 const { forEachSeries } = require('p-iteration');
