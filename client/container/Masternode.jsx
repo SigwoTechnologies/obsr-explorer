@@ -108,36 +108,38 @@ class Masternode extends Component {
           total={ this.state.pages } />
         <HorizontalBreak
           select={ select } />
-        <Table
-          cols={ this.state.cols }
-          data={ sortBy(this.state.mns.map((mn) => {
-            const lastPaidAt = moment(mn.lastPaidAt).utc();
-            const isEpoch = lastPaidAt.unix() === 0;
-            // const add = <span className="span-address" />
-            // const cTx = <span className="span-collateral" />
-            // const txIndex = <span className="span-index" />
-            // const version = <span className="span-ver" />
-            return {
-              ...mn,
-              status: (mn.status == 'ENABLED' ? <div className="green-dot" /> : <div className="red-dot" />),
-              txOutIdx: ( <div>{/* {txIndex} */}{mn.txOutIdx} </div> ),
-              ver: ( <div>{/* {version} */}{mn.ver} </div> ),
-              active: moment().subtract(mn.active, 'seconds').utc().fromNow(),
-              addr: (
-                <Link to={ `/address/${ mn.addr }` }>
-                  {/* { add } */}
-                  { `${ mn.addr.substr(0, 20) }...` }
-                </Link>
-              ),
-              lastPaidAt: isEpoch ? 'N/A' : date24Format(mn.lastPaidAt),
-              txHash: (
-                <Link to={ `/tx/${ mn.txHash }` }>
-                  {/* { cTx } */}
-                  { `${ mn.txHash.substr(0, 20) }...` }
-                </Link>
-              )
-            };
-          }), ['status']) } />
+        <div className="masternode-table">
+          <Table
+            cols={ this.state.cols }
+            data={ sortBy(this.state.mns.map((mn) => {
+              const lastPaidAt = moment(mn.lastPaidAt).utc();
+              const isEpoch = lastPaidAt.unix() === 0;
+              // const add = <span className="span-address" />
+              // const cTx = <span className="span-collateral" />
+              // const txIndex = <span className="span-index" />
+              // const version = <span className="span-ver" />
+              return {
+                ...mn,
+                status: (mn.status == 'ENABLED' ? <div className="green-dot" /> : <div className="red-dot" />),
+                txOutIdx: ( <div>{/* {txIndex} */}{mn.txOutIdx} </div> ),
+                ver: ( <div>{/* {version} */}{mn.ver} </div> ),
+                active: moment().subtract(mn.active, 'seconds').utc().fromNow(),
+                addr: (
+                  <Link to={ `/address/${ mn.addr }` }>
+                    {/* { add } */}
+                    { `${ mn.addr.substr(0, 20) }...` }
+                  </Link>
+                ),
+                lastPaidAt: isEpoch ? 'N/A' : date24Format(mn.lastPaidAt),
+                txHash: (
+                  <Link to={ `/tx/${ mn.txHash }` }>
+                    {/* { cTx } */}
+                    { `${ mn.txHash.substr(0, 20) }...` }
+                  </Link>
+                )
+              };
+            }), ['status']) } />
+        </div>
         <Pagination
           current={ this.state.page }
           className="text-center"

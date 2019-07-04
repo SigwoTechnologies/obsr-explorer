@@ -4,7 +4,6 @@ import React from 'react';
 
 import APIdata from '../component/API/APIdata';
 import APIsection from '../component/API/APIsection';
-import HorizontalRule from '../component/HorizontalRule';
 
 export default class API extends Component {
 
@@ -21,7 +20,17 @@ export default class API extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-        <br />
+        <div className="row">
+          <div className="col-md-3">
+            <div className="api__nav">
+              list
+            </div>
+          </div>
+          <div className="col-md-9">
+            { this.getSections() }
+          </div>
+        </div>
+        {/* <br />
         <div className="api">
           <div className="api__documentation">
             <div className="pr-4">
@@ -34,8 +43,9 @@ export default class API extends Component {
             </div>
           </div>
           <div className="api__detail">
+            
           </div>
-        </div>
+        </div> */}
       </div>
     );
   };

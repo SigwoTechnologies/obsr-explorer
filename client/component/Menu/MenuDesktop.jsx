@@ -44,14 +44,14 @@ export default class MenuDesktop extends Component {
       return (
         <Link
           key={ idx }
-          className={ `menu-desktop__item ${ isActive? 'menu-desktop__item--is-active' : '' }` }
+          className={ `menu-desktop__item ${ isActive ? 'menu-desktop__item--is-active' : '' }` }
           to={ i.href }>
           <span className="menu-desktop__item-label" >{ i.label }</span>
         </Link>
       )
     }
     )
-};
+  };
 
   handleToggle = () => this.setState({ isOpen: !this.state.isOpen });
 

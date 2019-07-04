@@ -21,8 +21,12 @@ export default class PageTitle extends Component {
             <span>{getPageName(this.props.location)}</span>
           </div>
           <div className="page-title__col ml-auto">
-            <SearchBar
-              onSearch={ this.props.onSearch } />
+            {/* {this.props.location == '/peer'
+              ? null
+              : <SearchBar onSearch={this.props.onSearch} />} */}
+            {/* <SearchBar
+              onSearch={ this.props.onSearch } /> */}
+            <SearchBar onSearch={this.props.onSearch} />
           </div>
         </div>
       </div>
