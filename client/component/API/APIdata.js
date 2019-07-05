@@ -1,5 +1,5 @@
 const APIdata = [
-  {
+  {    
     heading: 'API Calls',
     subHeading: 'Return data from coind',
     calls: [
@@ -11,7 +11,7 @@ const APIdata = [
         {
           name: 'getBlock [hash] [height]',
           info: 'Returns block information for the given hash or height.',
-          path: '/api/block/00000000000072a98f7d8385809a1f71af983d22efce85e63ec3d75f04412823'
+          path: '/api/block/00000000000072a98f7d8385809a1f71af983d22efce...'
         },
         {
           name: 'getBlockAverage',
@@ -55,7 +55,7 @@ const APIdata = [
         },
         {
           name: 'getSupply',
-          info: 'Returns circulating and total supply information.<br />https://github.com/coincheckup/crypto-supplies',
+          info: 'Returns circulating and total supply information.',//<br />https://github.com/coincheckup/crypto-supplies',
           path: '/api/supply'
         },
         {
@@ -71,7 +71,7 @@ const APIdata = [
         {
           name: 'getTX [hash]',
           info: 'Returns information for the given transaction.',
-          path: '/api/tx/790c2bdeb46189f180d4a83d7b16aa75a75da1b91d117fea7a7ae818239f0137'
+          path: '/api/tx/790c2bdeb46189f180d4a83d7b16aa75a75da1b91d117f...'
         },
         {
           name: 'getDifficulty',
@@ -132,17 +132,17 @@ const APIdata = [
         {
           name: 'Transaction (/#/tx/[hash])',
           info: 'Returns transaction information',
-          path: '/#/tx/b1725bcb70b62faa0b273e5385b0225c2ef589bd638cfa582b6cb34f9430d0b9'
+          path: '/#/tx/b1725bcb70b62faa0b273e5385b0225c2ef589bd638c...'
         },
         {
           name: 'Block (/#/block/[hash|height]',
           info: 'Returns block information.',
-          path: '/#/block/000000000001eb792fe1ac3f901d2373509769f5179d9fe2fd3bf8cb3b6ebec9'
+          path: '/#/block/000000000001eb792fe1ac3f901d2373509769f517...'
         },
         {
           name: 'Address (/#/address/[hash]',
           info: 'Returns address information.',
-          path: '/#/block/000000000001eb792fe1ac3f901d2373509769f5179d9fe2fd3bf8cb3b6ebec9'
+          path: '/#/address/000000000001eb792fe1ac3f901d2373509769f5179d...'
         },
         // { name: 'qr (qr/[hash]',
         //   info: 'Returns qr code information.',
