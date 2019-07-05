@@ -24,7 +24,7 @@ const FooterMenuData = [
   {label: 'Movement', href: '/movement'},
   {label: 'Masternode', href: '/masternode'},
   {label: 'Connections', href: '/peer'},
-  // {label: 'Statistics', icon: '/img/statistics.svg', href: '/statistics'},
+  {label: 'Statistics', icon: '/img/statistics.svg', href: '/statistics'},
   {label: 'API', href: '/api'},
   {label: 'OBSR Info', href: '/coin'}
 ]
@@ -75,7 +75,7 @@ export default class FooterMenu extends Component {
               { this.getLinks() }
             </div>
             <div className="menu-desktop__social">
-              <a href="https://t.me/observer_official" target="_blank">
+              <a href="https://t.me/obsrofficial" target="_blank">
                 <Icon name="telegram" className="fab footer__social-media-icon" />
               </a>
               <a href="https://github.com/observernet" target="_blank">

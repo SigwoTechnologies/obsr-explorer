@@ -46,8 +46,9 @@ export default class MenuMobile extends Component {
       <div className={ `menu-mobile ${ this.state.isOpen ? 'menu-mobile--open' : 'menu-mobile--close' }` }>
         <div className="menu-mobile__heading">
           <div className="page-title">
-            {getPageName(this.props.location)}</div>
-          </div>      
+            <div className="page-title-text__mobile">{getPageName(this.props.location)}</div>
+          </div>
+        </div>      
         <div className="menu-mobile__hamburger">
           <a onClick={ this.handleToggle } >
             <Icon name="bars" className="menu-mobile__toggle" onClick={ this.handleToggle } />
@@ -73,7 +74,7 @@ export default class MenuMobile extends Component {
                 <a href="https://github.com/observernet" target="_blank">
                   <Icon name="github" className="fab footer__social-media-icon" />
                 </a>
-                <a href="https://t.me/observer_official" target="_blank">
+                <a href="https://t.me/obsrofficial" target="_blank">
                   <Icon name="telegram" className="fab footer__social-media-icon" />
                 </a>
                 <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">

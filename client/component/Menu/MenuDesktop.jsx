@@ -66,7 +66,7 @@ export default class MenuDesktop extends Component {
               { this.getLinks() }
             </div>
             <div className="menu-desktop__social">
-              <a href="https://t.me/observer_official" target="_blank">
+              <a href="https://t.me/obsrofficial" target="_blank">
                 <Icon name="telegram" className="fab footer__social-media-icon" />
               </a>
               <a href="https://github.com/observernet" target="_blank">
