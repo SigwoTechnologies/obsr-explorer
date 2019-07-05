@@ -1,14 +1,13 @@
 {
-    "plugins": [
-        "transform-class-properties",
-        "transform-object-rest-spread"
-    ],
-    "presets": [
-        ["env", {
-            "targets": {
-                "node": "current"
-            }
-        }],
-        "react"
-    ]
+  "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread",
+      ["@babel/plugin-transform-runtime", {
+        "regenerator": true,
+      }]
+  ],
+  "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+  ]
 }

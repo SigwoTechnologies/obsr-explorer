@@ -1,5 +1,5 @@
 
-require('babel-polyfill');
+// require('babel-polyfill');
 require('../lib/cron');
 const config = require('../config');
 const { exit, rpc } = require('../lib/cron');
@@ -22,7 +22,7 @@ async function syncMasternode() {
   // Increase the timeout for masternode.
   rpc.timeout(10000); // 10 secs
 
-  const mns = await rpc.call('masternode', ['list']);
+  const mns = await rpc.call('listmasternodes');
   const inserts = [];
   await forEach(mns, async (mn) => {
     const masternode = new Masternode({

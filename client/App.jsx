@@ -31,19 +31,10 @@ import TX from './container/TX';
 import Icon from './component/Icon';
 import Loading from './component/Loading';
 import Menu from './component/Menu';
-import FooterMenu from './component/Menu';
+import FooterMenu from './component/Menu/FooterMenu';
 import Notification from './component/Notification';
 import SearchBar from './component/SearchBar';
-
-const MenuData = [
-  {label: 'Overview', icon: '/img/home.svg', href: '/'},
-  {label: 'Movement', icon: '/img/movement.svg', href: '/movement'},
-  {label: 'Masternode', icon: '/img/masternodes.svg', href: '/masternode'},
-  {label: 'Connections', icon: '/img/connections.svg', href: '/peer'},
-  // {label: 'Statistics', icon: '/img/statistics.svg', href: '/statistics'},
-  {label: 'Coin Info', icon: '/img/coininfo.svg', href: '/coin'},
-  {label: 'API', icon: '/img/api.svg', href: '/api'}
-]
+import MenuData from './component/Menu/menuData';
 
 class App extends Component {
   static propTypes = {
@@ -59,7 +50,7 @@ class App extends Component {
     this.state = {
       init: true,
       limit: 10,
-      searches: []
+      searches: [],
     };
     this.timer = { coins: null, txs: null };
   };
@@ -125,7 +116,7 @@ class App extends Component {
   };
 
   handleSearch = (term) => {
-    console.log(term)
+    // console.log(term)
     // If term doesn't match then ignore.
     if (!isTX(term) && !isBlock(term) && !isAddress(term)) {
       return;
@@ -148,7 +139,6 @@ class App extends Component {
         });
     }
   };
-
   
   render() {
     if (this.state.init) {
@@ -165,14 +155,16 @@ class App extends Component {
             <div className="content__wrapper">
               {/* <Notification /> */}
               <div className="row container-fluid searchContainer m-0">
-                <div className="container">
-                  <div className="col-6"></div>
+                {/* <div className="container">
+                  <div className="col-6">
+                    {this.getPageName()}
+                  </div>
                   <div className="col-6 ml-auto">
                     <SearchBar
                       className="d-none d-md-block mb-3"
                       onSearch={ this.handleSearch } />
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="content__inner-wrapper container mt-4">
                 <Switch>
@@ -185,14 +177,14 @@ class App extends Component {
                   <Route exact path="/masternode" component={ Masternode } />
                   <Route exact path="/movement" component={ Movement } />
                   <Route exact path="/peer" component={ Peer } />
-                  {/* <Route exact path="/statistics" component={ Statistics } /> */}
+                  <Route exact path="/statistics" component={ Statistics } />
                   <Route exact path="/tx/:hash" component={ TX } />
                   <Route component={ Error404 } />
                 </Switch>
               </div>
             </div>
             {/* <Footer /> */}
-            <FooterMenu onSearch={ this.handleSearch } />
+            <FooterMenu links={MenuData} onSearch={ this.handleSearch } />
             <div className="container" style={{ fontSize: '14px', color: 'gray', paddingBottom: '40px', textAlign: 'left' }}>
               <p>ⓒ 2019 Observer Foundation- All Rights Reserved <a href="https://obsr.org">obsr.org</a></p>
             </div>

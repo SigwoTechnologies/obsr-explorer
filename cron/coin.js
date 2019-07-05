@@ -1,4 +1,4 @@
-require('babel-polyfill');
+// require('babel-polyfill');
 const config = require('../config');
 const { exit, rpc } = require('../lib/cron');
 const fetch = require('../lib/fetch');
@@ -25,16 +25,17 @@ async function syncCoin() {
     {$match: {address: {$not: /OP_RETURN/}}},
     {$group: {_id: 'supply', total: {$sum: '$value'}}}
   ])
-  // let market = await fetch(url);
-  // if (Array.isArray(market)) {
-  //   market = market.length ? market[0] : {};
-  // }
-  let market ={
-    market_cap_usd:0,
-    price_btc:0,
-    available_supply:0,
-    price_usd:0
+  let market = await fetch(url);
+  if (Array.isArray(market)) {
+    market = market.length ? market[0] : {};
   }
+  // Use this if the coin isn't on Coinmarketcap
+  // let market ={
+  //   market_cap_usd:0,
+  //   price_btc:0,
+  //   available_supply:0,
+  //   price_usd:0
+  // }
 
   const coin = new Coin({
     cap: market.market_cap_usd,

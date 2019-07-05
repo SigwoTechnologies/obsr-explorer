@@ -36,11 +36,11 @@ export default class SearchBar extends Component {
     return (
       <div className="animated fadeIn" style={{ width: '100%' }}>
         <div className={ `search ${ props.className ? props.className : '' }` }>
+          <Icon name="search" className="search__icon" />
           <input
             className="search__input"
             onKeyPress={ this.handleKeyPress }
             placeholder={ props.placeholder } />
-          <Icon name="search" className="search__icon" />
         </div>
       </div>
     );

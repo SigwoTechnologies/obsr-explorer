@@ -1,5 +1,5 @@
 
-require('babel-polyfill');
+// require('babel-polyfill');
 const config = require('../config');
 const express = require('express');
 

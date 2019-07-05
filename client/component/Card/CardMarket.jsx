@@ -68,7 +68,11 @@ export default class CardStatus extends Component {
               BTC market
           </span>
             <span className="card__result">
-              {this.props.btc}
+            <CountUp
+                decimals={8}
+                duration={1}
+                end={this.props.btc}
+                start={0} />
             </span>
           </div>
           <GraphLine

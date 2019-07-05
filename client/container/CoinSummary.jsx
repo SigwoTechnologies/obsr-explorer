@@ -45,16 +45,17 @@ class CoinSummary extends Component {
 
   componentDidMount() {
     Promise.all([
-        this.props.getCoins(),
-        this.props.getTXs()
-      ])
-      .then((res) => {
-        this.setState({
-          coins: res[0], // 7 days at 5 min = 2016 coins
-          loading: false,
-          txs: res[1]
-        });
+      this.props.getCoins(),
+      this.props.getTXs()
+    ])
+    .then((res) => {
+      this.setState({
+        coins: res[0], // 7 days at 5 min = 2016 coins
+        loading: false,
+        txs: res[1]
       });
+    })
+    .catch(err => console.log(err));
   };
 
   render() {
@@ -73,11 +74,15 @@ class CoinSummary extends Component {
     }
 
     let tTX = 0;
-    this.state.txs.forEach((tx) => {
-      tTX += tx.total;
-    });
-    const avgTX = ((tTX / 7) / 24) / this.state.txs.length;
-    const day = (<small>{ moment().format('MMM DD') }</small>);
+    let avgTX = 0;
+    let day = 0;
+    if (this.state.txs) {
+      this.state.txs.forEach((tx) => {
+        tTX += tx.total;
+      });
+      avgTX = ((tTX / 7) / 24) / this.state.txs.length;
+      day = (<small>{ moment().format('MMM DD') }</small>);
+    }
 
     return (
       <div>
@@ -121,18 +126,18 @@ class CoinSummary extends Component {
         </div>
         <div className="row">
           <div className="col-md-12 col-lg-6">
-            <CardNetworkSummary
-              difficulty={ coin.diff }
-              hashps={ coin.netHash }
-              xAxis={ this.props.coins.map(c => c.createdAt) }
-              yAxis={ this.props.coins.map(c => c.diff ? c.diff : 0.0) } />
-          </div>
-          <div className="col-md-12 col-lg-6">
             <CardMasternodeSummary
               offline={ coin.mnsOff }
               online={ coin.mnsOn }
               xAxis={ this.props.coins.map(c => c.createdAt) }
               yAxis={ this.props.coins.map(c => c.mnsOn ? c.mnsOn : 0.0) } />
+          </div>
+          <div className="col-md-12 col-lg-6">
+            <CardNetworkSummary
+              difficulty={ coin.diff }
+              hashps={ coin.netHash }
+              xAxis={ this.props.coins.map(c => c.createdAt) }
+              yAxis={ this.props.coins.map(c => c.diff ? c.diff : 0.0) } />
           </div>
         </div>
       </div>

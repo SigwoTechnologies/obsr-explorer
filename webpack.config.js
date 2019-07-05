@@ -1,49 +1,45 @@
-
-const compressionPlugin = require('compression-webpack-plugin');
-const htmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-const uglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path');
 
-const htmlPlugin = new htmlWebpackPlugin({
+const envType = process.env.NODE_ENV;
+console.log(`Compiling code in ${envType} mode.`);
+
+const htmlPlugin = new HtmlWebpackPlugin({
   filename: 'index.html',
   hash: true,
   inject: 'body',
-  template: './client/template.html'
+  template: './client/template.html',
 });
 
-const basePlugins = [
-  htmlPlugin,
-  new webpack.EnvironmentPlugin({
-    DEBUG: JSON.stringify(process.env.DEBUG || false),
-    NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-  }),
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.NamedModulesPlugin(),
-  new webpack.ProvidePlugin({
-    Promise: 'bluebird'
-  })
-];
+const envPlugin = envType === 'production'
+  ? new webpack.EnvironmentPlugin({
+      DEBUG: false,
+      NODE_ENV: 'production',
+      'process.env.NODE_ENV': 'production'
+    })
+  : new webpack.EnvironmentPlugin({
+      DEBUG: false,
+      NODE_ENV: 'development',
+      'process.env.NODE_ENV': 'development'
+    });
 
-const prodPlugins = [
-  new compressionPlugin({
-    algorithm: 'gzip',
-    asset: '[path].gz[query]'
-  }),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: { warnings: false },
-    comments: false,
-    sourceMap: true,
-    minimize: false
-  })
-];
+const prodPlugins = new CompressionPlugin({
+  filename: '[path].gz',
+  algorithm: 'gzip',
+  test: /\.js(\?.*)?$/i,
+  deleteOriginalAssets: false,
+});
 
-const envPlugins = process.env.NODE_ENV === 'production'
-  ? [...basePlugins, ...prodPlugins]
-  : basePlugins;
+const options = {
+  filename: 'bundle.js.map',
+};
 
 module.exports = {
+  mode: envType,
   devServer: {
     compress: true,
     contentBase: path.resolve('public'),
@@ -51,8 +47,14 @@ module.exports = {
     port: 8081,
     publicPath: '/'
   },
-  devtool: 'source-map',
-  entry: ['babel-polyfill', './client/index.js'],
+  devtool: envType !== 'production' ? 'source-map' : false,
+  entry: './client/index.js',
+  optimization: {
+    minimizer: [new UglifyJsPlugin({
+      exclude: /\/node_modules/,
+      sourceMap: true,
+    })],
+  },
   module: {
     rules: [
       {
@@ -60,41 +62,73 @@ module.exports = {
         use: {
           loader: 'worker-loader',
           options: {
-            inline: true,
+            // inline: true,
             name: 'fetch.worker.js'
           }
         }
       },
       {
-        exclude: /node_modules/,
         test: /\.jsx?$/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: [
-              'transform-class-properties',
-              'transform-object-rest-spread'
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
             ],
-            presets: ['env', 'react']
+            plugins: [
+              "@babel/plugin-proposal-class-properties",
+              "@babel/plugin-proposal-object-rest-spread",
+              ["@babel/plugin-transform-runtime", {
+                "regenerator": true,
+              }]
+            ],
           }
         }
       },
       {
-        test: /\.s?css/,
+        test: /\.html$/,
         use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' }
+          {
+            loader: 'html-loader',
+            // options: { minimize: true },
+          }
         ]
-      }
+      },
+      {
+        test: /\.s*css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ]
+      },
     ]
   },
+  plugins: [
+    htmlPlugin,
+    envPlugin,
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
+    new webpack.SourceMapDevToolPlugin(options),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      Promise: 'bluebird'
+    }),
+    // new webpack.ProvidePlugin({
+    //   Promise: "imports-loader?this=>global!exports-loader?global.Promise!bluebird"
+    // }),
+    prodPlugins,
+  ],
   output: {
     filename: 'bundle.js',
     path: path.resolve('public'),
-    publicPath: '/'
+    publicPath: '/',
+    globalObject: 'this',
   },
-  plugins: envPlugins,
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
