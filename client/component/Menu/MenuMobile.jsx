@@ -73,7 +73,7 @@ export default class MenuMobile extends Component {
                 <a href="https://github.com/observernet" target="_blank">
                   <Icon name="github" className="fab footer__social-media-icon" />
                 </a>
-                <a href="https://t.me/observer_official" target="_blank">
+                <a href="https://t.me/obsrofficial" target="_blank">
                   <Icon name="telegram" className="fab footer__social-media-icon" />
                 </a>
                 <a href="https://www.facebook.com/Observer-Foundation-172553103444990/" target="_blank">

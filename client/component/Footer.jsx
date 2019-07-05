@@ -52,7 +52,7 @@ class Footer extends Component {
             <a href="https://github.com/observernet" target="_blank">
               <Icon name="github" className="fab footer__social-media-icon" />
             </a>
-            <a href="https://t.me/observer_official" target="_blank">
+            <a href="https://t.me/obsrofficial" target="_blank">
               <Icon name="telegram" className="fab footer__social-media-icon" />
             </a>
             <a href="https://open.kakao.com/o/gPsdW8T" target="_blank">
