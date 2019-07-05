@@ -291,3 +291,19 @@ a {
     width: 95%;
   }
 }
+
+.page-title-text {
+  min-width: 100px;
+  max-width: 380px;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+.page-title-text__mobile {
+  min-width: 100px;
+  max-width: 240px;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+}

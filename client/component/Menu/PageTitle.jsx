@@ -18,7 +18,7 @@ export default class PageTitle extends Component {
       <div className="page-title searchContainer d-none d-md-block">
         <div className="page-title__wrapper container">
           <div className="page-title__col mr-auto">
-            <span>{getPageName(this.props.location)}</span>
+            <div className="page-title-text">{getPageName(this.props.location)}</div>
           </div>
           <div className="page-title__col ml-auto">
             {/* {this.props.location == '/peer'
