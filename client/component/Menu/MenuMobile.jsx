@@ -46,8 +46,9 @@ export default class MenuMobile extends Component {
       <div className={ `menu-mobile ${ this.state.isOpen ? 'menu-mobile--open' : 'menu-mobile--close' }` }>
         <div className="menu-mobile__heading">
           <div className="page-title">
-            {getPageName(this.props.location)}</div>
-          </div>      
+            <div className="page-title-text__mobile">{getPageName(this.props.location)}</div>
+          </div>
+        </div>      
         <div className="menu-mobile__hamburger">
           <a onClick={ this.handleToggle } >
             <Icon name="bars" className="menu-mobile__toggle" onClick={ this.handleToggle } />
