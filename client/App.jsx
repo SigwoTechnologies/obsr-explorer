@@ -177,7 +177,7 @@ class App extends Component {
                   <Route exact path="/masternode" component={ Masternode } />
                   <Route exact path="/movement" component={ Movement } />
                   <Route exact path="/peer" component={ Peer } />
-                  {/* <Route exact path="/statistics" component={ Statistics } /> */}
+                  <Route exact path="/statistics" component={ Statistics } />
                   <Route exact path="/tx/:hash" component={ TX } />
                   <Route component={ Error404 } />
                 </Switch>
