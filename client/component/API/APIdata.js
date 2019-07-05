@@ -6,12 +6,12 @@ const APIdata = [
         {
           name: 'getAddress [hash]',
           info: 'Returns information for given address.',
-          path: '/api/address/bFY9cyZqZTYHGfduXo7CVNTMiCDeJ1q4gA'
+          path: '/api/address/oUmz3ncnXGdEafaVbG16J9ak4vNjBAfuSJ'
         },
         {
           name: 'getBlock [hash] [height]',
           info: 'Returns block information for the given hash or height.',
-          path: '/api/block/00000000000072a98f7d8385809a1f71af983d22efce...'
+          path: '/api/block/0000007ad4bb62d97a626d7179df1dfdbc0ea96687865f5000efab0ffeb0185f'
         },
         {
           name: 'getBlockAverage',
@@ -21,7 +21,7 @@ const APIdata = [
         {
           name: 'getCoin',
           info: 'Returns coin information.',
-          path: '/api/coin/'
+          path: '/api/coin'
         },
         {
           name: 'getCoinHistory',
@@ -36,7 +36,7 @@ const APIdata = [
         {
           name: 'getMasternodeByAddress',
           info: 'Returns masternode information by Wallet Address.',
-          path: '/api/masternode/bJAUCVr24X84c9k6QVuSvdjbuC69S7zMeG'
+          path: '/api/masternode/OU3nYpsPofS1wPwg6w2pTaKaRuvvkbxCxR'
         },
         {
           name: 'getMasternodeCount',
@@ -55,7 +55,7 @@ const APIdata = [
         },
         {
           name: 'getSupply',
-          info: 'Returns circulating and total supply information.',//<br />https://github.com/coincheckup/crypto-supplies',
+          info: 'Returns circulating and total supply information.',
           path: '/api/supply'
         },
         {
@@ -71,7 +71,7 @@ const APIdata = [
         {
           name: 'getTX [hash]',
           info: 'Returns information for the given transaction.',
-          path: '/api/tx/790c2bdeb46189f180d4a83d7b16aa75a75da1b91d117f...'
+          path: '/api/tx/e51231594e4a84aa98bbdc234811f991fb41acc51aa83759196d5bbea8ab6a81'
         },
         {
           name: 'getDifficulty',
@@ -132,17 +132,17 @@ const APIdata = [
         {
           name: 'Transaction (/#/tx/[hash])',
           info: 'Returns transaction information',
-          path: '/#/tx/b1725bcb70b62faa0b273e5385b0225c2ef589bd638c...'
+          path: '/#/tx/e51231594e4a84aa98bbdc234811f991fb41acc51aa83759196d5bbea8ab6a81'
         },
         {
           name: 'Block (/#/block/[hash|height]',
           info: 'Returns block information.',
-          path: '/#/block/000000000001eb792fe1ac3f901d2373509769f517...'
+          path: '/#/block/0000007ad4bb62d97a626d7179df1dfdbc0ea96687865f5000efab0ffeb0185f'
         },
         {
           name: 'Address (/#/address/[hash]',
           info: 'Returns address information.',
-          path: '/#/address/000000000001eb792fe1ac3f901d2373509769f5179d...'
+          path: '/#/address/oUmz3ncnXGdEafaVbG16J9ak4vNjBAfuSJ'
         },
         // { name: 'qr (qr/[hash]',
         //   info: 'Returns qr code information.',
