@@ -38,6 +38,7 @@
     width: 84%;
     margin-left: auto;
     background: white;
+    height: 700px;
 
     ul {
       list-style: none;
@@ -97,18 +98,20 @@
   }
 
   &__footer {
-    padding: 2em 1.5em;
-    position: fixed;
+    padding: 1em 1.7em;
+    // position: fixed;
     bottom: 0;
 
     img {
       position: relative;
-      left: -14px;
+      left: -16px;
+      height: 58px;
+      width: auto;
     }
 
     &--social {
       .footer__social-media-icon {
-        height: 45px;
+        height: 40px;
       }
     }
 
