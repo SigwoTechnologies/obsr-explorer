@@ -74,3 +74,4 @@ config.js
 /public/fetch.worker.js.map
 
 public/bundle.js.map
+public/bundle.js.map
