@@ -35,6 +35,10 @@
 	&__section-sub-heading {
 		color: $gray;
 	}
+	
+	&__menuStay {
+        position: fixed;
+    }
 
 	&__call {
 		margin-bottom: $margin-lg;
