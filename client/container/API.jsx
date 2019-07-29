@@ -32,43 +32,9 @@ export default class API extends Component {
         <div className="row">
           <div className="col-md-3">
             <div className="api__nav">
-              {this.getSectionsNames()}
-              {/* API Calls <br />
-              <p className="api__section-sub-heading">
-
-                getAddress [hash]<br />
-                getBlock [hash][height]<br />
-                getBlockAverage<br />
-                getCoin<br />
-                getCoinHistory<br />
-                getMasternodes<br />
-                getMasternodeByAddress<br />
-                getMasternodeCount<br />
-                getMasternodeAverage<br />
-                getPeer<br />
-                getSupply<br />
-                getTop100<br />
-                getTXs<br />
-                getTXLatest<br />
-                getTX [hash]<br />
-                getDifficulty<br />
-                getConnectionCount<br />
-                getBlockCount<br />
-                getNetworkHashPS<br />
-              </p>
-                Extended API
-              <p className="api__section-sub-heading">
-                getMoneySupply<br />
-                getAddress<br />
-                getBalance<br />
-                getLastTXs<br />
-              </p>
-                Linking (GET)
-              <p className="api__section-sub-heading">
-                Transaction (/#/tx/[hash])<br />
-                Block (/#/block/[hash|height]<br />
-                Address (/#/address/[hash]<br />
-              </p> */}
+              <div className="api__menuStay">
+                {this.getSectionsNames()}
+              </div>
             </div>
           </div>
           <div className="col-md-9">
