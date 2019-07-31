@@ -33,7 +33,9 @@ export default class API extends Component {
           <div className="col-md-3">
             <div className="api__nav">
               <div className="api__menuStay">
-                {this.getSectionsNames()}
+                <div className="d-none d-lg-block">
+                  {this.getSectionsNames()}
+                </div>
               </div>
             </div>
           </div>
