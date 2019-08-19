@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import CardTXs from '../component/Card/CardTXs';
-import HorizontalBreak from '../component/HorizontalBreak';
 import Pagination from '../component/Pagination';
 import Select from '../component/Select';
 
@@ -95,20 +94,15 @@ class Movement extends Component {
           current={ this.state.page }
           className="text-center"
           onPage={ this.handlePage }
-          total={ this.state.pages } />
-        <HorizontalBreak
+          total={ this.state.pages }
           select={ select } />
-        {/* <div className="clearfix" /> */}
-        {/* <HorizontalBreak
-          select={ select } /> */}
         <CardTXs txs={ this.state.txs } />
         <Pagination
           current={ this.state.page }
           className="text-center"
           onPage={ this.handlePage }
-          total={ this.state.pages } />
-        <HorizontalBreak
-        select={ select } />
+          total={ this.state.pages }
+          select={ select } />
       </div>
     );
   };
