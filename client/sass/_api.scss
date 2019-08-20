@@ -40,6 +40,14 @@
         position: fixed;
     }
 
+	&__menuStay {
+		position: fixed;
+		//left: 30px;
+		//top: 20%;
+		//width: 12em;
+		//margin-top: -2.5em;
+	}
+
 	&__call {
 		margin-bottom: $margin-lg;
 		position: relative;
@@ -128,7 +136,7 @@
 	}
 
 	&__call-detail:hover &__call-copy {
- 		display: flex;
+                display: flex;
 		opacity: 1;
 	}
 
