@@ -85,6 +85,7 @@ export default class Pagination extends Component {
               </a>
             </li>
           </ul>
+          { this.props.select }
         </div>
       </div>
     );
