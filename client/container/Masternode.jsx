@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import sortBy from 'lodash/sortBy';
 
-import HorizontalBreak from '../component/HorizontalBreak';
 import Pagination from '../component/Pagination';
 import Table from '../component/Table';
 import Select from '../component/Select';
@@ -105,8 +104,7 @@ class Masternode extends Component {
           current={ this.state.page }
           className="text-center"
           onPage={ this.handlePage }
-          total={ this.state.pages } />
-        <HorizontalBreak
+          total={ this.state.pages }
           select={ select } />
         <div className="masternode-table">
           <Table
@@ -144,8 +142,7 @@ class Masternode extends Component {
           current={ this.state.page }
           className="text-center"
           onPage={ this.handlePage }
-          total={ this.state.pages } />
-        <HorizontalBreak
+          total={ this.state.pages }
           select={ select } />
       </div>
     );
